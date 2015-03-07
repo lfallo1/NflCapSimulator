@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h3 class="modal-title">Transactions</h3>
+</div>
+<div class="modal-body">
+    <div ng-show="transactions.length<1" class="alert alert-danger">No transactions have been performed</div>
+    <ul class="list-group">
+        <li class="transaction-modal-item list-group-item" ng-repeat="t in transactions">
+            <h5><small>{{t.player.name}}</small> {{t.description}} ({{t.year}})<button class="primary-button right" ng-click="showDetails(t.id)">Details</button><button class="primary-button danger-background right" ng-click="undoTransaction(t.id)">Undo</button></h5>
+        </li>
+    </ul>
+</div>
+<button class="transaction-modal-footer primary-button" ng-click="cancel()">Close</button>

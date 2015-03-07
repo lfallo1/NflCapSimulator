@@ -1,0 +1,61 @@
+@CHARSET "ISO-8859-1";
+
+.btn-info, .btn-default {
+	margin-top: 10px;
+	font-size: 20px;
+	margin-right: 5px;
+}
+
+.btn-info, .btn-info:focus, .btn-info.focus, .btn-info:active, .btn-info.active
+	{
+	background: white;
+	color: black;
+	border: 1px solid white;
+}
+
+.btn-info:hover {
+	background: rgba(255, 255, 255, 0.9);
+	color: black;
+	border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.btn-info:hover {
+	background: rgba(255, 255, 255, 0.8);
+	color: black;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.badge {
+	padding: 10px;
+	font-size: 18px;
+}
+
+.legend.badge {
+	font-size: 14px;
+	font-weight: normal;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.signing-bonus {
+	margin: 0px 10px 0px 10px;
+	text-align: right;
+	font-weight: bolder;
+	font-size: 20px;
+	padding: 4px;
+	border-radius: 4px;
+}
+
+.year-label-old.badge {
+	background: none;
+}
+
+input:focus {
+	border: 1px solid #e0cb0f !important;
+	font-weight: bold;
+	color: black;
+}
+
+#submit-restructure, .home {
+	margin-top: 10px;
+	font-size: 22px;
+}

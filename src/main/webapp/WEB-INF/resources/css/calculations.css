@@ -1,0 +1,66 @@
+
+#calculations-list {
+	margin-top: 25px;
+	margin-bottom: 13px;
+}
+
+#calculations-list li {
+	display: inline;
+	margin-right: 5px;
+	background: #181818;
+	border: 1px solid #282828;
+	padding: 15px;
+	font-size: 18px;
+	border-radius: 4px 4px 0px 0px;
+}
+
+#calculations-list li:hover {
+	cursor: pointer;
+	box-shadow: 2px 4px 8px rgba(255, 255, 255, 0.3) inset;
+}
+
+#calculations-list li:active {
+	cursor: pointer;
+	box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.7) inset;
+}
+
+#calculations-list li a {
+	color: white;
+}
+
+#calculations-list li a:hover {
+	text-decoration: none;
+}
+
+.active-tab {
+	background: #ff8800 !important;
+}
+
+.calculations th:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.calculations select {
+	margin-top: 15px;
+	border: 1px solid white;
+	font-weight: bold;
+	font-size: 22px;
+	height: 100%;
+	background: #282828;
+	color: white;
+}
+
+.form-control:focus {
+	border-color: inherit;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.salary-cap-numbers-title-wrapper {
+	text-align: right;
+}
+
+.year-dropdown-wrapper {
+	margin-top: 5px;
+}

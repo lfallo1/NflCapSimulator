@@ -1,0 +1,99 @@
+#contract-overview-table input, .multi-select-list{
+    width: 100%;
+}
+
+#contract-overview-table td:last-child{
+    color: red;
+    font-weight: bolder;
+}
+
+#contract-overview-table .custom-label{
+    font-size: 18px;
+    font-weight: normal;
+    color: white;
+}
+
+#contract-overview-table td:first-child{
+    width: 30%;
+}
+
+#contract-overview-table .glyphicon-remove-circle{
+    font-size: 32px;
+}
+
+#contracts th{
+    text-align: center;
+}
+
+#contracts .input-group{
+    margin-left: 15px;
+}
+
+#contract-summary input{
+    margin-left: 50px;
+}
+
+#contracts .input-group{
+    margin-left: 15px;
+}
+
+.year-label, .bonus-label{
+    font-weight: bold;
+    font-size: 17px;
+    margin-right: 10px;
+    color: white;
+}
+
+#nav-buttons{
+    text-align: center;
+}
+
+.submit-button{
+    font-weight: bolder;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+}
+
+.submit-button:hover{
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.6) inset;
+}
+
+.submit-button:active{
+    box-shadow: 5px 10px 18px rgba(0,0,0,0.6) inset;
+    outline: none;
+}
+
+.btn-link{
+    color: red;
+    text-decoration: underline;
+}
+
+.btn-link:hover, btn-link:active{
+    color: white;
+}
+
+.error-text{
+	color: #cc0000 !important;
+}
+
+.error-class{
+	color: #cc0000 !important;
+	border: 1px solid #cc0000 !important;
+}
+
+.error-bg{
+	background: #cc0000 !important;
+}
+
+.form-control{
+	width: 100% !important;
+}
+
+.text-align-middle{
+	text-align: center;
+	font-size: 13px;
+	margin-top: 100px !important;
+}

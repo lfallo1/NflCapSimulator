@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+        
+	<context:component-scan base-package="com.salarycap" />
+	<mvc:annotation-driven />
+
+ 	<!-- static resources (css, js) mapped in the ${webappRoot}/views/resources directory -->
+ 	<mvc:resources mapping="/libraries/**" location="/WEB-INF/libraries/" />
+    <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
+    <mvc:resources mapping="/directives/**" location="/WEB-INF/resources/app/directives/" />
+
+	<!-- Flyway configuration -->
+	<bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
+<!-- 	    <property name="baselineOnMigrate" value="true" /> -->
+	    <property name="locations" value="migrations/" />
+	    <property name="dataSource" ref="dataSource" />
+	    <property name="cleanOnValidationError" value="true"></property>
+	</bean>
+
+ 	<!-- Add Transaction support -->
+    <bean id="myTxManager"
+    	class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    	<property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!-- Use @Transaction annotations for managing transactions -->
+    <tx:annotation-driven transaction-manager="myTxManager" />
+
+<!-- OPENSHIFT Connection -->
+     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" depends-on="flyway">
+ 	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://127.12.26.2:3306/nflsalarycap" />
+		<property name="username" value="adminZ75rUeZ" />
+		<property name="password" value="2517vBMmCi6v" />
+     </bean>
+     
+<!-- LOCAL Connection -->
+<!--      <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" depends-on="flyway"> -->
+<!--  	    <property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
+<!-- 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/salarycap_prod" /> -->
+<!-- 		<property name="username" value="lfallon" /> -->
+<!-- 		<property name="password" value="Raven$1996" /> -->
+<!--      </bean>      -->
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	     <!-- Configure to plugin JSON as request and response in method handler -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="jsonMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+     
+    <!-- Configure bean to convert JSON to POJO and vice versa -->
+    <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+    </bean>
+</beans>

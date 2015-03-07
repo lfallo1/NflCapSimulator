@@ -1,0 +1,29 @@
+.player-bio h5, .contract-overview h5{
+	color: white;
+	font-size: 15px;
+}
+
+.well{
+	border: 1px solid rgba(255, 255, 255, 0.4);	
+}
+
+tbody tr{
+	background: white;
+	color: black;
+}
+
+tbody tr:hover{
+	color: white;
+}
+
+.home-btn{
+	margin-bottom: 10px;
+	margin-left: 5px;
+	float: right;
+}
+
+.name-and-position{
+	font-weight: bolder;
+	display: inline;
+	margin-right: 10px;
+}

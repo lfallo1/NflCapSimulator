@@ -1,0 +1,3 @@
+<select class="form-control" ng-model="selectedTeam" ng-change="getTotalSalaries()">
+   	<option ng-repeat="t in teams" value="{{t.id}}">{{t.name}}</option>
+</select>

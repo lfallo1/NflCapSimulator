@@ -1,0 +1,35 @@
+@CHARSET "ISO-8859-1";
+
+button{
+	margin-top: 10px;
+	margin-right: 4px;
+}
+
+.badge {
+	font-size: 18px;
+	padding: 5px 6px;
+}
+
+.years-on-contract {
+	color: white;
+	font-weight: bolder;
+	padding: 5px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.well {
+	background: rgba(30, 235, 61, 0.5);
+}
+
+.calculations-bad {
+	background: #cc0000;
+}
+
+.error, .glyphicon-remove-circle {
+	color: #cc0000 !important;
+}
+
+.glyphicon-remove-circle {
+	font-size: 20px;
+}
