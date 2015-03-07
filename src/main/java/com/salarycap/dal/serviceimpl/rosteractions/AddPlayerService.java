@@ -78,7 +78,7 @@ public class AddPlayerService {
 	private Player createPlayer(NewPlayerWrapper newPlayerWrapper) {
 		Player player = new Player(playerDal.getLastId(), new LocalDate().getYear() - newPlayerWrapper.getAccrued(), new Date(1, 1, 1900),
 				newPlayerWrapper.getName(), "", "", 0,0,0,"", newPlayerWrapper.getTeamId(),
-				0, newPlayerWrapper.getName().substring(0, 5) + playerDal.getLastId().toString().replace(" ", ""));
+				0);
 		playerDal.add(player);
 		return player;
 	}

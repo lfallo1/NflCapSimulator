@@ -36,9 +36,6 @@ public class Player {
 	private Integer originalTeamId;
 	@Column("weight")
 	private Integer weight;
-	@Column("code")
-	private String code;	
-	
 
 	@SuppressWarnings("deprecation")
 	@TemplateConstructor
@@ -47,8 +44,7 @@ public class Player {
 			@PropertyName("notes") String notes, @PropertyName("college") String college,
 			@PropertyName("draftPick") Integer draftPick, @PropertyName("draftRound") Integer draftRound,
 			@PropertyName("draftYear") Integer draftYear, @PropertyName("height") String height,
-			@PropertyName("originalTeamId") Integer originalTeamId, @PropertyName("weight") Integer weight,
-			@PropertyName("code") String code) {
+			@PropertyName("originalTeamId") Integer originalTeamId, @PropertyName("weight") Integer weight) {
 		this.id = id;
 		this.accrued = accrued;
 		this.dateOfBirth = new LocalDate(dateOfBirth.getYear(), dateOfBirth.getMonth()+1, dateOfBirth.getDate());;
@@ -61,7 +57,6 @@ public class Player {
 		this.height = height;
 		this.originalTeamId = originalTeamId;
 		this.weight = weight;
-		this.code = code;
 	}
 
 	public Player() {
@@ -162,14 +157,6 @@ public class Player {
 
 	public void setWeight(Integer weight) {
 		this.weight = weight;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
 	}	
 
 }
