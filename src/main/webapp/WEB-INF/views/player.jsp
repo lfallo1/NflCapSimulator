@@ -8,6 +8,7 @@
 		   	<div class="row player-bio">
 		   		<div class="col-md-6">
 		   			<div ng-show="player.weight!==0">
+		   				<h4><strong>Code: {{player.code}}</strong></h4>
 					    <h5>Date of Birth: <span ng-bind="formatDob(player.dateOfBirth)"></span></h5>
 					    <h5 ng-show="player.weight!==0">{{player.height}} {{player.weight}}lbs</h5>
 					    <h5>Accrued Seasons: <span ng-bind="getAccrued(player.accrued)"></span></h5>
