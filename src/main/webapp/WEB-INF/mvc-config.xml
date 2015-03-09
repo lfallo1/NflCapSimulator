@@ -29,6 +29,7 @@
 	<!-- Flyway configuration -->
 	<bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
 	    <property name="locations" value="migrations/" />
+<!-- 	    <property name="baselineOnMigrate" value="true" /> -->
 	    <property name="dataSource" ref="dataSource" />
 	</bean>
 
@@ -76,4 +77,5 @@
     <!-- Configure bean to convert JSON to POJO and vice versa -->
     <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
     </bean>
+    
 </beans>
