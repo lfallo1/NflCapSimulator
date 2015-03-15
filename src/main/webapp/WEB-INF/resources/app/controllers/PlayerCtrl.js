@@ -44,7 +44,7 @@
 				 * Team Info
 				 */
 				TeamResource.get({
-					id : $scope.contracts[$scope.contracts.length-1].team
+					id : $scope.contracts.sort(function(a,b){return a.year > b.year ? 1 : a.year < b.year ? -1 : 0;})[$scope.contracts.length-1].team
 				}, function(data){
 					$scope.team = data;
 				});
