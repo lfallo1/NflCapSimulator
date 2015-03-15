@@ -8,7 +8,7 @@
     <button class="primary-button" ng-style="getPrimaryTeamColorBg()" ng-click="addPlayer()">Add Player</button>
     <button class="primary-button" ng-style="getSecondaryTeamColorBg()" ng-click="openTransactionModal()">Transactions</button>
 </div>
-<div class="alert alert-warning" ng-show="notification!=false"><span class="glyphicon glyphicon-info-sign"></span> {{notification}}</div>
+<div class="alert alert-warning animated" ng-class="{'flipInY' : notification, 'flipOutY' : !notification}" ng-show="notification!=false"><span class="glyphicon glyphicon-info-sign"></span> {{notification}}</div>
 <div class="row">
     <div class="col-md-10 col-md-push-2">
         <table class="table table-hover table-striped">

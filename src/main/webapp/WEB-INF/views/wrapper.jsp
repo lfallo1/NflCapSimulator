@@ -15,6 +15,7 @@
     <script src="libraries/js/angular.min.js" type="text/javascript"></script>
     <script src="libraries/js/angular-route.min.js" type="text/javascript"></script>
     <script src="libraries/js/angular-resource.min.js" type="text/javascript"></script>
+    <script src="libraries/js/angular-animate.js" type="text/javascript"></script>
     <script src="libraries/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="libraries/js/ui-bootstrap-tpls-0.12.0.min.js" type="text/javascript"></script>
     <script src="libraries/js/lodash.js" type="text/javascript"></script>
@@ -47,6 +48,7 @@
     <script src="resources/app/directives/TeamDropdown.js" type="text/javascript"></script>
     <link type="text/css" rel="stylesheet" href="libraries/css/bootstrap.css" />
     <link type="text/css" rel="stylesheet" href="libraries/css/bootstrap-multiselect.css" />
+    <link type="text/css" rel="stylesheet" href="libraries/css/animate.css" />
     <link type="text/css" rel="stylesheet" href="resources/css/site.css" />
     <link type="text/css" rel="stylesheet" ng-href="{{css}}">
 </head>

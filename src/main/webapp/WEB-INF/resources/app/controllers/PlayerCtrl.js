@@ -39,7 +39,7 @@
 			ContractResource.getByPlayer({
 				id : $routeParams.id
 			}, function(data){
-				$scope.contracts = data;
+				$scope.contracts = data.filter(function(d){if(d.status=='Contract'){return d;}});
 				/**
 				 * Team Info
 				 */
