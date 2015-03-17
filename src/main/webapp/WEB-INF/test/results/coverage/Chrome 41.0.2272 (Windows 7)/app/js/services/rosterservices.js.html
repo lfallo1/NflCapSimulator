@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./app/js/services/rosterservices.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./app/js/services/rosterservices.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">4.69% <small>(3 / 64)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 36)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">7.69% <small>(1 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">4.76% <small>(3 / 63)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./app/js/services/</a> &#187; rosterservices.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * 
+ */
+(function(){
+	var rosterservices = angular.module('rosterservices', []);
+	
+	rosterservices.factory('ContractManagementService', <span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >    	var factory = {};</span>
+    	
+<span class="cstat-no" title="statement not covered" >    	factory.generateOverview = <span class="fstat-no" title="function not covered" >function(contracts, contractOverview){</span></span>
+<span class="cstat-no" title="statement not covered" >			var overview = {</span>
+				'totalValue' : 0,
+				'guaranteed': 0,
+				'apy' : 0,
+				'freeAgent' : "",
+				'contractLength' : 0
+			}
+<span class="cstat-no" title="statement not covered" >			var sortedContracts = contracts.sort(<span class="fstat-no" title="function not covered" >function(a,b){<span class="cstat-no" title="statement not covered" ></span>return a.year &lt; b.year ? 1 : a.year &gt; b.year ? -1 : 0;}</span>);</span>
+<span class="cstat-no" title="statement not covered" >			for(var i = 0; i &lt; contractOverview.years+1; i++){</span>
+<span class="cstat-no" title="statement not covered" >				overview.totalValue += sortedContracts[i].capCharge;</span>
+<span class="cstat-no" title="statement not covered" >				overview.guaranteed += sortedContracts[i].signingBonus + sortedContracts[i].optionBonus + sortedContracts[i].guaranteedBaseSalary;</span>
+			}
+<span class="cstat-no" title="statement not covered" >			overview.apy = (overview.totalValue / contractOverview.years).toFixed(2);</span>
+<span class="cstat-no" title="statement not covered" >			overview.contractLength = contractOverview.years;</span>
+<span class="cstat-no" title="statement not covered" >			overview.freeAgent = factory.getFreeAgentText(contractOverview.freeAgentYear);</span>
+<span class="cstat-no" title="statement not covered" >			return overview;</span>
+		};
+		
+<span class="cstat-no" title="statement not covered" >        factory.calculateDeadMoney = <span class="fstat-no" title="function not covered" >function(roster, year){</span></span>
+<span class="cstat-no" title="statement not covered" >            return ArrayServices.sum(roster.filter(<span class="fstat-no" title="function not covered" >function (d) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (d.year == year &amp;&amp; (d.contractStatus.id == 11)) {</span>
+<span class="cstat-no" title="statement not covered" >                    return d;</span>
+                }
+            }), 'capCharge');
+        };
+        
+<span class="cstat-no" title="statement not covered" >        factory.getFreeAgentText = <span class="fstat-no" title="function not covered" >function(freeAgentYear){</span></span>
+<span class="cstat-no" title="statement not covered" >			var year = freeAgentYear.substring(0,4);</span>
+<span class="cstat-no" title="statement not covered" >			var abbrev = freeAgentYear.length &gt; 4 ? freeAgentYear.substring(4) : "U";</span>
+<span class="cstat-no" title="statement not covered" >			var type = '';</span>
+<span class="cstat-no" title="statement not covered" >			if(type!==null){</span>
+<span class="cstat-no" title="statement not covered" >				switch (abbrev) {</span>
+					case "U":
+<span class="cstat-no" title="statement not covered" >						type = "UFA";</span>
+<span class="cstat-no" title="statement not covered" >						break;</span>
+					case "E":
+<span class="cstat-no" title="statement not covered" >						type = "EFA";</span>
+<span class="cstat-no" title="statement not covered" >						break;</span>
+					case "O":
+<span class="cstat-no" title="statement not covered" >						type = "Option";</span>
+<span class="cstat-no" title="statement not covered" >						break;</span>
+					case "R":
+<span class="cstat-no" title="statement not covered" >						type = "RFA"</span>
+<span class="cstat-no" title="statement not covered" >						break;</span>
+					case "V":
+<span class="cstat-no" title="statement not covered" >						type = "Contract Voids";</span>
+<span class="cstat-no" title="statement not covered" >						break;</span>
+					default:
+<span class="cstat-no" title="statement not covered" >						break;</span>
+				}
+			}
+<span class="cstat-no" title="statement not covered" >			return year + " ("+ type +")";</span>
+		};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        factory.inTop51or53 = <span class="fstat-no" title="function not covered" >function(contract, roster, year, type, team){</span></span>
+<span class="cstat-no" title="statement not covered" >            var resultClass = {'background-color': 'white', 'color': 'black'};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var filtered = roster.filter(<span class="fstat-no" title="function not covered" >function(d){</span></span>
+<span class="cstat-no" title="statement not covered" >                if(d.year==year &amp;&amp; d.status === 'Contract'){</span>
+<span class="cstat-no" title="statement not covered" >                    return d;</span>
+                }
+            }).sort(<span class="fstat-no" title="function not covered" >function(a,b){<span class="cstat-no" title="statement not covered" ></span>return b.capCharge - a.capCharge;}</span>);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var limit = type === 'Season' ? 53 : 51;</span>
+<span class="cstat-no" title="statement not covered" >            limit = limit &gt; filtered.length ? filtered.length : limit;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for(var i = 0; i &lt; limit; i++){</span>
+<span class="cstat-no" title="statement not covered" >                if(filtered[i].id === contract.id){</span>
+<span class="cstat-no" title="statement not covered" >                    resultClass = {'background-color': '#'+team.primaryColor, 'color':'white'};</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                }
+            }
+<span class="cstat-no" title="statement not covered" >            return resultClass;</span>
+        };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        factory.calculateTotalSalary = <span class="fstat-no" title="function not covered" >function(roster, year, type){</span></span>
+<span class="cstat-no" title="statement not covered" >            var totalSalary = 0;</span>
+<span class="cstat-no" title="statement not covered" >            if(!(roster===undefined)) {</span>
+<span class="cstat-no" title="statement not covered" >                var filtered = roster.filter(<span class="fstat-no" title="function not covered" >function (d) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    if (d.year==year) {</span>
+<span class="cstat-no" title="statement not covered" >                        return d;</span>
+                    }
+                }).sort(<span class="fstat-no" title="function not covered" >function (a, b) {</span>
+<span class="cstat-no" title="statement not covered" >                    return b.capCharge - a.capCharge;</span>
+                });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if(type==='Offseason'){</span>
+<span class="cstat-no" title="statement not covered" >                    for (var i = 0; i &lt; filtered.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                        totalSalary += i &lt; limit ? filtered[i].capCharge : filtered[i].signingBonus + filtered[i].optionBonus;</span>
+                    }
+                }
+                else{
+<span class="cstat-no" title="statement not covered" >                    totalSalary = ArrayServices.sum(filtered, 'capCharge');</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                totalSalary += factory.calculateDeadMoney(roster, year);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            return totalSalary;</span>
+        };	
+		
+<span class="cstat-no" title="statement not covered" >		return factory;</span>
+	});
+	
+})();</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 16 2015 22:05:03 GMT-0400 (Eastern Daylight Time)</div>
+</div>
+
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../sorter.js"></script>
+</body>
+</html>

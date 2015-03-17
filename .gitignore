@@ -1,4 +1,3 @@
 target
 .svn
-src/main/webapp/WEB-INF/test
 src/main/webapp/WEB-INF/node_modules

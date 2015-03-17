@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./app/js/controllers/ExtensionCtrl.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./app/js/controllers/ExtensionCtrl.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">2.74% <small>(2 / 73)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 34)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">4.76% <small>(1 / 21)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">2.74% <small>(2 / 73)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./app/js/controllers/</a> &#187; ExtensionCtrl.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * 
+ */
+(function(){
+	angular.module('app.controllers').controller('ExtensionCtrl', <span class="fstat-no" title="function not covered" >function($rootScope, $scope, $routeParams, $location, ContractResource, PlayerResource, MinimumSalaryResource, ExtensionValidationService, RosterActionResource, TeamResource, ColorServices){</span>
+<span class="cstat-no" title="statement not covered" >		$scope.title = "Extension";</span>
+<span class="cstat-no" title="statement not covered" >		$scope.signingBonus = 1000000;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.extensionObj = [];</span>
+<span class="cstat-no" title="statement not covered" >		if($rootScope.readyState ===false){</span>
+<span class="cstat-no" title="statement not covered" >			$location.path("/");</span>
+		}
+		else <span class="cstat-no" title="statement not covered" >if($routeParams.contractId != null &amp;&amp; !isNaN($routeParams.contractId)){</span>
+<span class="cstat-no" title="statement not covered" >			ContractResource.get({</span>
+				id : $routeParams.contractId
+			}, <span class="fstat-no" title="function not covered" >function(data){</span>
+<span class="cstat-no" title="statement not covered" >				$scope.contract = data;</span>
+<span class="cstat-no" title="statement not covered" >				$scope.year = $scope.contract.year;</span>
+				
+<span class="cstat-no" title="statement not covered" >				TeamResource.get({id : $scope.contract.team}, <span class="fstat-no" title="function not covered" >function(data){</span></span>
+<span class="cstat-no" title="statement not covered" >					$scope.team = data;</span>
+				});				
+				
+<span class="cstat-no" title="statement not covered" >				ContractResource.getByPlayer({</span>
+					id : $scope.contract.player.id
+				}, <span class="fstat-no" title="function not covered" >function(data){</span>
+<span class="cstat-no" title="statement not covered" >					$scope.contracts = data.filter(<span class="fstat-no" title="function not covered" >function(d){</span></span>
+<span class="cstat-no" title="statement not covered" >						if(d.year&gt;=$scope.contract.year &amp;&amp; d.status === 'Contract'){</span>
+<span class="cstat-no" title="statement not covered" >							return d;</span>
+						}
+					}).sort(<span class="fstat-no" title="function not covered" >function(a,b){<span class="cstat-no" title="statement not covered" ></span>return a.year - b.year;}</span>);
+<span class="cstat-no" title="statement not covered" >					$rootScope.readyState = true;</span>
+				});
+			});
+			
+<span class="cstat-no" title="statement not covered" >			MinimumSalaryResource.query(<span class="fstat-no" title="function not covered" >function(data){</span></span>
+<span class="cstat-no" title="statement not covered" >				$scope.minimumSalaries = data;</span>
+			});
+		}
+		else{
+<span class="cstat-no" title="statement not covered" >			$location.path("/");</span>
+		}
+		
+        //Year Dropdown
+<span class="cstat-no" title="statement not covered" >        $scope.yearDropdownSettings = {showUncheckAll : false, scrollable : false, selectionLimit : 1, displayProp: 'id', dynamicTitle:false, idProp:'id'};</span>
+<span class="cstat-no" title="statement not covered" >        $scope.yearDropdownLabel = {buttonDefaultText: 'Years'};</span>
+<span class="cstat-no" title="statement not covered" >        $scope.years = [{"id":1}, {"id":2},{"id":3},{"id":4},{"id":5},{"id":6},{"id":7}];</span>
+<span class="cstat-no" title="statement not covered" >        $scope.selectedYears = {id: 1};	</span>
+        
+<span class="cstat-no" title="statement not covered" >        $scope.getMinimumSalary = <span class="fstat-no" title="function not covered" >function(year, creditedSeasons){</span></span>
+<span class="cstat-no" title="statement not covered" >    		MinimumSalaryResource.getByYearAndCreditedSeasons({</span>
+    			year : year,
+    			cs : creditedSeasons
+    		}, <span class="fstat-no" title="function not covered" >function(data){</span>
+<span class="cstat-no" title="statement not covered" >    			return data.minimumSalary;</span>
+    		});
+        };
+        
+<span class="cstat-no" title="statement not covered" >        $scope.getNumber = <span class="fstat-no" title="function not covered" >function(years) {</span></span>
+<span class="cstat-no" title="statement not covered" >        	if(years){</span>
+<span class="cstat-no" title="statement not covered" >        		return new Array(parseInt(years.id));</span>
+        	}
+        };
+        
+<span class="cstat-no" title="statement not covered" >        $scope.validateObj = <span class="fstat-no" title="function not covered" >function(index, isNew){</span></span>
+<span class="cstat-no" title="statement not covered" >        	if($scope.year &amp;&amp; $scope.contracts &amp;&amp; $scope.minimumSalaries &amp;&amp; $scope.contract){</span>
+<span class="cstat-no" title="statement not covered" >        		if(isNew){</span>
+<span class="cstat-no" title="statement not covered" >        			return ExtensionValidationService.validate($scope.year, $scope.contract.player, $scope.extensionObj[index], $scope.contracts.length, $scope.minimumSalaries, index, isNew);</span>
+        		}
+        		else{
+<span class="cstat-no" title="statement not covered" >        			return ExtensionValidationService.validate($scope.year, $scope.contract.player, $scope.contracts[index], $scope.contracts.length, $scope.minimumSalaries, index, isNew);</span>
+        		}
+        	}
+<span class="cstat-no" title="statement not covered" >        	return { "hasError" : false, "msg" : ""};</span>
+        }
+        
+<span class="cstat-no" title="statement not covered" >        $scope.createExtensionObjList = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        	$scope.extensionObjList = [];</span>
+<span class="cstat-no" title="statement not covered" >        	for(var i = 0; i &lt; $scope.contracts.length; i++){</span>
+<span class="cstat-no" title="statement not covered" >        		$scope.extensionObjList.push({</span>
+        			"baseSalary" : $scope.contracts[i].baseSalary,
+        			"guaranteedBaseSalary" : $scope.contracts[i].guaranteedBaseSalary
+        		});
+        	}
+<span class="cstat-no" title="statement not covered" >        	for(var i = 0; i &lt; $scope.extensionObj.length; i++){</span>
+<span class="cstat-no" title="statement not covered" >        		$scope.extensionObjList.push({</span>
+        			"baseSalary" : $scope.extensionObj[i].baseSalary,
+        			"guaranteedBaseSalary" : $scope.extensionObj[i].guaranteedBaseSalary
+        		});
+        	}        	
+        }
+        
+<span class="cstat-no" title="statement not covered" >        $scope.validateAll = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        	var valid = true;</span>
+<span class="cstat-no" title="statement not covered" >        	for(var i = 0; i &lt; $scope.contracts.length; i++){</span>
+<span class="cstat-no" title="statement not covered" >        		if($scope.validateObj(i, false).hasError){</span>
+<span class="cstat-no" title="statement not covered" >        			valid = false;</span>
+        		}
+        	}
+<span class="cstat-no" title="statement not covered" >        	for(var i = 0; i &lt; $scope.extensionObj.length; i++){</span>
+<span class="cstat-no" title="statement not covered" >        		if($scope.validateObj(i, true).hasError){</span>
+<span class="cstat-no" title="statement not covered" >        			valid = false;</span>
+        		}
+        	}
+<span class="cstat-no" title="statement not covered" >        	return valid;</span>
+        }
+        
+<span class="cstat-no" title="statement not covered" >        $scope.submitExtension = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        	if($scope.validateAll()){</span>
+<span class="cstat-no" title="statement not covered" >        		$scope.createExtensionObjList();</span>
+<span class="cstat-no" title="statement not covered" >        		RosterActionResource.extension({},{</span>
+            		"signingBonus" : Number($scope.signingBonus),
+            		"year" : $scope.contract.year,
+            		"playerId" : $scope.contract.player.id,
+            		"additionalYears" : $scope.selectedYears.id,
+            		"totalYears" : $scope.selectedYears.id + $scope.contracts.length,
+            		"contractDtoList" : $scope.extensionObjList
+        		}, <span class="fstat-no" title="function not covered" >function(data){</span>
+<span class="cstat-no" title="statement not covered" >        			$location.path("/team/" + $scope.contract.team);</span>
+        		});
+        	}
+        	else{
+<span class="cstat-no" title="statement not covered" >        		console.log("Has Errors")</span>
+        	}
+        };
+        
+<span class="cstat-no" title="statement not covered" >        $scope.home = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        	$location.path("/team/" + $scope.contract.team);</span>
+        }
+        
+        
+        /**
+         * CUSTOM CSS STYLING
+         */
+<span class="cstat-no" title="statement not covered" >        $scope.signingBonusStyle = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >			if($scope.team)</span>
+<span class="cstat-no" title="statement not covered" >				return{</span>
+		        	'background': 'rgba('+ ColorServices.hexToRgb($scope.team.primaryColor).rgb +', 0.4)',
+		        	'border': '1px solid rgba('+ ColorServices.hexToRgb($scope.team.secondaryColor).rgb +', 0.4)'
+	        	};
+        }
+        
+<span class="cstat-no" title="statement not covered" >		$scope.getBadgeStyle = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >			if($scope.team)</span>
+<span class="cstat-no" title="statement not covered" >				return{</span>
+					'background': '#' + $scope.team.primaryColor
+				};			
+		}        
+		
+<span class="cstat-no" title="statement not covered" >		$scope.getNewYearLabelStyle = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >			if($scope.team)</span>
+<span class="cstat-no" title="statement not covered" >				return {</span>
+					background: '#' + $scope.team.secondaryColor				
+				};
+		};
+		
+<span class="cstat-no" title="statement not covered" >		$scope.legendStyle = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >			if($scope.team)</span>
+<span class="cstat-no" title="statement not covered" >				return {</span>
+					'background': 'rgba('+ ColorServices.hexToRgb($scope.team.secondaryColor).rgb +', 0.5)'				
+				};
+		}
+		
+	});
+})();</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 16 2015 22:05:03 GMT-0400 (Eastern Daylight Time)</div>
+</div>
+
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../sorter.js"></script>
+</body>
+</html>

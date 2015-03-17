@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./app/js/controllers/CalculationsCtrl.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./app/js/controllers/CalculationsCtrl.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">6.9% <small>(2 / 29)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">12.5% <small>(1 / 8)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">7.14% <small>(2 / 28)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./app/js/controllers/</a> &#187; CalculationsCtrl.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function(){
+	angular.module('app.controllers').controller('CalculationsCtrl', <span class="fstat-no" title="function not covered" >function($rootScope, $scope, $location, </span>
+			TransactionResource, CalculationResource){
+<span class="cstat-no" title="statement not covered" >		$scope.hasResults = false;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.reverse = true;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.yearDropdown = new Date().getFullYear();</span>
+		
+<span class="cstat-no" title="statement not covered" >		if($rootScope.readyState === false){</span>
+<span class="cstat-no" title="statement not covered" >			$location.path("/");</span>
+		}
+		else{
+<span class="cstat-no" title="statement not covered" >			$scope.calculate = <span class="fstat-no" title="function not covered" >function(type){</span></span>
+<span class="cstat-no" title="statement not covered" >				$scope.active = type;</span>
+<span class="cstat-no" title="statement not covered" >				$scope.hasResults = true;</span>
+<span class="cstat-no" title="statement not covered" >				$scope.type = type;</span>
+<span class="cstat-no" title="statement not covered" >				switch (type) {</span>
+					case "getHighestPaid":
+<span class="cstat-no" title="statement not covered" >						CalculationResource.getHighestPaid({</span>
+							year : $scope.yearDropdown
+						}, <span class="fstat-no" title="function not covered" >function(data){</span>
+<span class="cstat-no" title="statement not covered" >							$scope.highestPaidResults = data;</span>
+<span class="cstat-no" title="statement not covered" >							$scope.predicate = 'capCharge';</span>
+						});
+<span class="cstat-no" title="statement not covered" >						break;			</span>
+					case "getHighestAPY":
+<span class="cstat-no" title="statement not covered" >						console.log(type);</span>
+<span class="cstat-no" title="statement not covered" >						break;			</span>
+					case "getTeamSalaries":
+<span class="cstat-no" title="statement not covered" >						CalculationResource.getTeamSalaries({</span>
+							year : $scope.yearDropdown
+						}, <span class="fstat-no" title="function not covered" >function(data){</span>
+<span class="cstat-no" title="statement not covered" >							$scope.teamSalariesResults = data.sort(<span class="fstat-no" title="function not covered" >function(a,b){<span class="cstat-no" title="statement not covered" ></span>return a.totalSalary &lt; b.totalSalary ? 1 : a.totalSalary &gt; b.totalSalary ? -1 : 0}</span>);</span>
+<span class="cstat-no" title="statement not covered" >							$scope.predicate = '(adjustedCap - totalSalary)';</span>
+						});
+<span class="cstat-no" title="statement not covered" >						break;</span>
+					default:
+<span class="cstat-no" title="statement not covered" >						break;</span>
+				}
+			};
+<span class="cstat-no" title="statement not covered" >			$scope.calculate('getHighestPaid');</span>
+		}		
+		
+<span class="cstat-no" title="statement not covered" >		$scope.filterChanged = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >			$scope.calculate($scope.type);</span>
+		}
+		
+<span class="cstat-no" title="statement not covered" >		$scope.isActive = <span class="fstat-no" title="function not covered" >function(type){</span></span>
+<span class="cstat-no" title="statement not covered" >			return $scope.active === type;</span>
+		}		
+	});
+})();</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 16 2015 22:05:03 GMT-0400 (Eastern Daylight Time)</div>
+</div>
+
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../sorter.js"></script>
+</body>
+</html>
