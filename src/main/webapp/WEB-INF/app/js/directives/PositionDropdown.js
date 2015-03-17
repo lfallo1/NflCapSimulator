@@ -2,7 +2,7 @@
 	angular.module('salaryCapApp').directive('scPositionDropdown', function(){
 		return{
 			restrict : 'E',
-			templateUrl : _contextPath + 'app/js/directives/templates/positionDropdown.html',
+			templateUrl : 'app/js/directives/templates/positionDropdown.html',
 			controller : function($scope, PositionResource){
 				$scope.positionDropdownSettings = {displayProp: 'positionName', dynamicTitle:false, externalIdProp: ''};
 	            $scope.positionDropdownLabel = {buttonDefaultText: 'Positions'};

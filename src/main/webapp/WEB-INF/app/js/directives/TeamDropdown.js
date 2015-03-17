@@ -1,7 +1,7 @@
 (function(){
 	angular.module('salaryCapApp').directive('scTeamDropdown', function(){
 		return{
-			templateUrl : _contextPath + 'app/js/directives/templates/teamDropdown.html',
+			templateUrl : 'app/js/directives/templates/teamDropdown.html',
 			controller : function($scope, TeamResource, CalculationResource){
 				TeamResource.query(function(data){
 					$scope.teams = data.filter(function(d){if(d.id!==$scope.contract.team){return d;}});

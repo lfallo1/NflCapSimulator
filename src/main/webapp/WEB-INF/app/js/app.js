@@ -1,7 +1,6 @@
 (function() {
     var myApp = angular.module('salaryCapApp', [
         'ngRoute',
-        'ngAnimate',
         'app.controllers',
         'ui.bootstrap',
         'angularjs-dropdown-multiselect'

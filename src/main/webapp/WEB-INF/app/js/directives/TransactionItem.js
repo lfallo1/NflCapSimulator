@@ -9,7 +9,7 @@
 				transactionParam : "=",
 				team : "="
 			},
-			templateUrl: _contextPath + 'app/js/directives/templates/transactionItem.html'
+			templateUrl: 'app/js/directives/templates/transactionItem.html'
 		}
 	})
 })();

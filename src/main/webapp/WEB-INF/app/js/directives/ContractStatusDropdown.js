@@ -2,7 +2,7 @@
 	angular.module('salaryCapApp').directive('scContractStatusDropdown', function(){
 		return{
 			restrict : 'E',
-			templateUrl : _contextPath + 'app/js/directives/templates/contractStatusDropdown.html',
+			templateUrl : 'app/js/directives/templates/contractStatusDropdown.html',
 			controller : function($scope, ContractStatusResource){
 				$scope.contractDropdownSettings = {displayProp: 'contractStatusName', dynamicTitle:false, externalIdProp: ''};
 	            $scope.contractDropdownLabel = {buttonDefaultText: 'Contracts'};

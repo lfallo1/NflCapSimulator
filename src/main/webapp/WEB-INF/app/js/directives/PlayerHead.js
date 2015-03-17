@@ -7,7 +7,7 @@
             	team : "=",
 			},
 			restrict : 'EA',
-			templateUrl : _contextPath + 'app/js/directives/templates/playerHead.html'
+			templateUrl : 'app/js/directives/templates/playerHead.html'
 		};
 	});
 })();

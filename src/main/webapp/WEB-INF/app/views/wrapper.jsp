@@ -8,14 +8,10 @@
 	<meta name="description" content="NFL Salary Cap Simulator">
 	<meta name="keywords" content="NFL Salary Cap Football Franchise Sports Ravens Cowboys Packers Money">
 	<meta name="author" content="Lance Fallon">    
-	<script type="text/javascript">
-	    var _contextPath = "${pageContext.request.contextPath}" + "/";
-	</script>    
     <script src="bower/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="bower/angular/angular.min.js" type="text/javascript"></script>
     <script src="bower/angular-route/angular-route.min.js" type="text/javascript"></script>
     <script src="bower/angular-resource/angular-resource.min.js" type="text/javascript"></script>
-    <script src="bower/angular-animate/angular-animate.min.js" type="text/javascript"></script>
     <script src="bower/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="bower/angular-bootstrap/ui-bootstrap.min.js" type="text/javascript"></script>
     <script src="bower/angular-bootstrap/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
@@ -79,12 +75,12 @@
 	<!-- Reset Notificaion Dialogue -->
 	<div class="row" id="roster-reset-notification-div" ng-show="resetRosterNotification">
 		<div class="col-md-8 col-md-offset-2">
-			<h3><img ng-src="${pageContext.request.contextPath}/app/images/loading.gif" /> {{resetRosterNotification}}</h3>
+			<h3><img ng-src="app/images/loading.gif" /> {{resetRosterNotification}}</h3>
 		</div>
 	</div>
 	<div class="startup" ng-show="readyState===false">
 		<div class="loading-wrapper">
-			<h3><img ng-src="${pageContext.request.contextPath}/app/images/loading.gif" /> Application is Starting...</h3>
+			<h3><img ng-src="app/images/loading.gif" /> Application is Starting...</h3>
 		</div>
 	</div>	
 	<!-- Views -->

@@ -1,6 +1,6 @@
 <div class="jumbotron" ng-cloak>
     <h1>{{team.name}} Salary Cap</h1>
-    <img ng-src="${pageContext.request.contextPath}/app/images/teamlogos/{{team.logo}}" alt="No Team Available" />
+    <img ng-src="app/images/teamlogos/{{team.logo}}" alt="No Team Available" />
     <p><strong>Salary Cap: {{salaryCap | currency}}</strong></p>
     <p><strong>Adjusted Cap: {{adjustedCap | currency}}</strong></p>    
     <p><strong>Total Salary: {{totalSalary | currency}}</strong></p>
