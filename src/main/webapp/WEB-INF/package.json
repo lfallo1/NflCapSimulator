@@ -1,0 +1,36 @@
+{
+  "name": "nflcapsimulator",
+  "version": "1.0.0",
+  "description": "NFL salary cap simulator web application",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://54fa3639fcf933e979000278@app-nflsalarycap.rhcloud.com/~/git/app.git/"
+  },
+  "keywords": [
+    "nfl",
+    "salary",
+    "cap",
+    "football",
+    "sports",
+    "calculator",
+    "simulator"
+  ],
+  "author": "Lance Fallon",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-coverage": "^0.2.7",
+    "karma-html-reporter": "^0.2.6",
+    "karma-jasmine": "^0.3.5",
+    "phantomjs": "^1.9.16"
+  }
+}
