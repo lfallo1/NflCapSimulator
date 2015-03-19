@@ -12,7 +12,7 @@
         $scope.reset = function(){
         	$location.path('/');
         	$scope.resetRosterNotification = "Reset in progress, please wait...";
-            RosterActionResource.reset({}, function(){
+            RosterActionResource.reset({}).$promise.then(function(){
             	$scope.hideNotification();
             });
         };		

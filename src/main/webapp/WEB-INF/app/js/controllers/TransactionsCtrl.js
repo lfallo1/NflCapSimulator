@@ -9,7 +9,7 @@
 			$location.path("/");
 		}		
 		else{
-			TransactionResource.query(function(data){
+			TransactionResource.query().$promise.then(function(data){
 				$scope.transactions = data;
 			});
 		}		

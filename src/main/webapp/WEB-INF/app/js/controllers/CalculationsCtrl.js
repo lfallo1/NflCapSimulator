@@ -18,7 +18,7 @@
 						case "getHighestPaid":
 							CalculationResource.getHighestPaid({
 								year : $scope.yearDropdown
-							}, function(data){
+							}).$promise.then(function(data){
 								$scope.highestPaidResults = data;
 								$scope.predicate = 'capCharge';
 							});
@@ -29,7 +29,7 @@
 						case "getTeamSalaries":
 							CalculationResource.getTeamSalaries({
 								year : $scope.yearDropdown
-							}, function(data){
+							}).$promise.then(function(data){
 								$scope.teamSalariesResults = data.sort(function(a,b){return a.totalSalary < b.totalSalary ? 1 : a.totalSalary > b.totalSalary ? -1 : 0});
 								$scope.predicate = '(adjustedCap - totalSalary)';
 							});

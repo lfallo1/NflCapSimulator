@@ -14,28 +14,28 @@
 		else if($routeParams.contractId != null){
 			ContractResource.get({
 				id : $routeParams.contractId
-			}, function(data){
+			}).$promise.then(function(data){
 				$scope.contract = data;
 				ContractResource.getByPlayer({
 					id : $scope.contract.player.id
-				}, function(data){
+				}).$promise.then(function(data){
 					$scope.playerContracts = data;
 					$scope.yearsRemaining = data.filter(function(d){if(d.year >= $scope.contract.year && d.status === 'Contract'){return d;}}).length;
 					$rootScope.readyState = true;
 				});
 				
-				TeamResource.get({id : $scope.contract.team}, function(data){
+				TeamResource.get({id : $scope.contract.team}).$promise.then(function(data){
 					$scope.team = data;
 				});
 				
 				PlayerResource.get({
 					id : $scope.contract.player.id
-				}, function(data){
+				}).$promise.then(function(data){
 					$scope.player = data;
 					MinimumSalaryResource.getByYearAndCreditedSeasons({
 						year : $scope.contract.year,
 						cs : $scope.contract.year - $scope.player.accrued
-					}, function(data){
+					}).$promise.then(function(data){
 						$scope.minimumSalary = data;
 						$scope.maxRestructureAmount = $scope.contract.baseSalary - $scope.minimumSalary.baseSalary;
 						if($scope.maxRestructureAmount <= 0){
@@ -54,7 +54,7 @@
 				RosterActionResource.restructure({}, {
 					contractId : $routeParams.contractId,
 					amount : $scope.amount
-				}, function(data){
+				}).$promise.then(function(data){
 					$location.path("/team/" + $scope.team.id);
 				}, function(err){
 					console.log(err.statusText);

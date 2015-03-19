@@ -20,7 +20,7 @@
     			$location.path("/");
     		}
             else if($routeParams.id != null && !isNaN($routeParams.id) && $routeParams.id != 0){
-                TeamResource.get({id:$routeParams.id}, function(data){
+                TeamResource.get({id:$routeParams.id}).$promise.then(function(data){
                 	$scope.team = data;
                 	if($scope.team.name){
                 		$scope.init();
@@ -36,9 +36,10 @@
             
             //Get all contracts by team
             $scope.init = function(){
-	            $scope.fullContractList = ContractResource.getByTeam({
+	            ContractResource.getByTeam({
 	            	'teamId' : $routeParams.id
-	            },function(){
+	            }).$promise.then(function(data){
+	            	$scope.fullContractList = data;
 	            	$scope.loadContracts();
 	            	$scope.generateCalculations();
 	            });
@@ -49,12 +50,12 @@
                 	yearType : 'Offseason',
                 	year : $scope.yearDropdown,
                 	teamId : $routeParams.id
-                }, function(data){
+                }).$promise.then(function(data){
                 	$scope.totalSalary = data.obj;
                 	SalaryCapConstantsResource.getByYearAndTeam({
                     	year : $scope.yearDropdown,
                     	teamId : $routeParams.id
-                    },function(data){
+                    }).$promise.then(function(data){
                     	$scope.salaryCapConstants = data;
                         $scope.salaryCap = $scope.salaryCapConstants.salaryCap;
                         $scope.adjustedCap = $scope.salaryCapConstants.adjustedCap;
@@ -81,7 +82,7 @@
                 $scope.filterObj.contractStatuses = $scope.selectedContractStatuses.map(function(d){return d.contractStatusName;});
                 $scope.contracts = [];
                 $scope.loading = "Loading...";
-                ContractResource.contractFilter({}, JSON.stringify($scope.filterObj), function(data){        	
+                ContractResource.contractFilter({}, JSON.stringify($scope.filterObj)).$promise.then(function(data){        	
                     $scope.contracts = data;
                     $scope.loading = false;
                     $scope.generateCalculations();
@@ -89,7 +90,7 @@
                     	year : $scope.yearDropdown,
                     	teamId : $routeParams.id
                     });              
-                    TransactionResource.tryGetLastTransaction(function(data){
+                    TransactionResource.tryGetLastTransaction().$promise.then(function(data){
                     	if(data.message!=undefined){
                     		$scope.showNotification(data);
                     	}
@@ -129,12 +130,12 @@
             $scope.performAction = function(action, contract){
                 switch(action) {
                     case 'cut':
-                        RosterActionResource.cut({}, contract.id, function(data){
+                        RosterActionResource.cut({}, contract.id).$promise.then(function(data){
                             $scope.init();
                         });
                         break;
                     case 'june1cut':
-                        RosterActionResource.june1cut({}, contract.id, function(data){
+                        RosterActionResource.june1cut({}, contract.id).$promise.then(function(data){
                         	$scope.init();
                         });
                         break;
@@ -167,7 +168,7 @@
              * BOOTSTRAP MODALS
              */
             $scope.openTransactionModal = function () {
-                TransactionResource.getByTeam({teamId : $scope.team.id}, function(data){
+                TransactionResource.getByTeam({teamId : $scope.team.id}).$promise.then(function(data){
                 	$rootScope.transactionsModifiedFromModal = false;
                     var modalInstance = $modal.open({
                         templateUrl: 'app/views/modals/transactionTemplate.html',
