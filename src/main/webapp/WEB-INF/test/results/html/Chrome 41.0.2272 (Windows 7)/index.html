@@ -94,7 +94,7 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 </head>
 
 <body id="HTMLReporter" class="html-reporter">
-<h1>Tested in Chrome 41.0.2272 (Windows 7) on Mon Mar 16 2015</h1>
+<h1>Tested in Chrome 41.0.2272 (Windows 7) on Wed Mar 18 2015</h1>
 
 <div class="alert">
 
@@ -102,7 +102,7 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 
   
   <span class="passingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
-  <a href="#" onclick="unfold();">Unfold</a></span>1 specs, 0 failed, 0 pending</span>
+  <a href="#" onclick="unfold();">Unfold</a></span>4 specs, 0 failed, 0 pending</span>
   
 
 
@@ -118,7 +118,19 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
       <span class="description">Controller: HomeCtrl</span>
     
       <div class="specSummary passed">
+      <span class="description">should set ready state to true after calling CalculationResource</span>
+      </div>
+    
+      <div class="specSummary passed">
+      <span class="description">should NOT set ready state to true after calling CalculationResource due to getting REJECT</span>
+      </div>
+    
+      <div class="specSummary passed">
       <span class="description">should change location path to 'team/5'</span>
+      </div>
+    
+      <div class="specSummary passed">
+      <span class="description">should return primary color of team object as css style</span>
       </div>
     
     </div>
