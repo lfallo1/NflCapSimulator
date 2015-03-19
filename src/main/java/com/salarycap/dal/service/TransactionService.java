@@ -8,7 +8,7 @@ public interface TransactionService {
 	void push(Transaction transaction);
 	void undoTransaction(Transaction transaction);
 	void removeAllTransactions();
-	Transaction getTransactionById(Integer transactionId);
+	Transaction getTransactionById(Integer transactionId) throws Exception;
 	List<Transaction> getAllTransactions();
 	Transaction peek();
 	List<Transaction> getByPlayer(Integer playerId);

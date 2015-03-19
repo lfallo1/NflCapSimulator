@@ -18,7 +18,7 @@
     <h1>Code coverage report for <span class="entity">./app/js/controllers/TeamCtrl.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">1.67% <small>(2 / 120)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">1.65% <small>(2 / 121)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Branches: <span class="metric">0% <small>(0 / 44)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -27,7 +27,7 @@
         Functions: <span class="metric">2.7% <small>(1 / 37)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">1.72% <small>(2 / 116)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">1.71% <small>(2 / 117)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -280,7 +280,8 @@
 243
 244
 245
-246</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+246
+247</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -321,6 +322,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -547,7 +549,7 @@
 <span class="cstat-no" title="statement not covered" >    			$location.path("/");</span>
     		}
             else <span class="cstat-no" title="statement not covered" >if($routeParams.id != null &amp;&amp; !isNaN($routeParams.id) &amp;&amp; $routeParams.id != 0){</span>
-<span class="cstat-no" title="statement not covered" >                TeamResource.get({id:$routeParams.id}, <span class="fstat-no" title="function not covered" >function(data){</span></span>
+<span class="cstat-no" title="statement not covered" >                TeamResource.get({id:$routeParams.id}).$promise.then(<span class="fstat-no" title="function not covered" >function(data){</span></span>
 <span class="cstat-no" title="statement not covered" >                	$scope.team = data;</span>
 <span class="cstat-no" title="statement not covered" >                	if($scope.team.name){</span>
 <span class="cstat-no" title="statement not covered" >                		$scope.init();</span>
@@ -563,9 +565,10 @@
             
             //Get all contracts by team
 <span class="cstat-no" title="statement not covered" >            $scope.init = <span class="fstat-no" title="function not covered" >function(){</span></span>
-<span class="cstat-no" title="statement not covered" >	            $scope.fullContractList = ContractResource.getByTeam({</span>
+<span class="cstat-no" title="statement not covered" >	            ContractResource.getByTeam({</span>
 	            	'teamId' : $routeParams.id
-	            },<span class="fstat-no" title="function not covered" >function(){</span>
+	            }).$promise.then(<span class="fstat-no" title="function not covered" >function(data){</span>
+<span class="cstat-no" title="statement not covered" >	            	$scope.fullContractList = data;</span>
 <span class="cstat-no" title="statement not covered" >	            	$scope.loadContracts();</span>
 <span class="cstat-no" title="statement not covered" >	            	$scope.generateCalculations();</span>
 	            });
@@ -576,12 +579,12 @@
                 	yearType : 'Offseason',
                 	year : $scope.yearDropdown,
                 	teamId : $routeParams.id
-                }, <span class="fstat-no" title="function not covered" >function(data){</span>
+                }).$promise.then(<span class="fstat-no" title="function not covered" >function(data){</span>
 <span class="cstat-no" title="statement not covered" >                	$scope.totalSalary = data.obj;</span>
 <span class="cstat-no" title="statement not covered" >                	SalaryCapConstantsResource.getByYearAndTeam({</span>
                     	year : $scope.yearDropdown,
                     	teamId : $routeParams.id
-                    },<span class="fstat-no" title="function not covered" >function(data){</span>
+                    }).$promise.then(<span class="fstat-no" title="function not covered" >function(data){</span>
 <span class="cstat-no" title="statement not covered" >                    	$scope.salaryCapConstants = data;</span>
 <span class="cstat-no" title="statement not covered" >                        $scope.salaryCap = $scope.salaryCapConstants.salaryCap;</span>
 <span class="cstat-no" title="statement not covered" >                        $scope.adjustedCap = $scope.salaryCapConstants.adjustedCap;</span>
@@ -608,7 +611,7 @@
 <span class="cstat-no" title="statement not covered" >                $scope.filterObj.contractStatuses = $scope.selectedContractStatuses.map(<span class="fstat-no" title="function not covered" >function(d){<span class="cstat-no" title="statement not covered" ></span>return d.contractStatusName;}</span>);</span>
 <span class="cstat-no" title="statement not covered" >                $scope.contracts = [];</span>
 <span class="cstat-no" title="statement not covered" >                $scope.loading = "Loading...";</span>
-<span class="cstat-no" title="statement not covered" >                ContractResource.contractFilter({}, JSON.stringify($scope.filterObj), <span class="fstat-no" title="function not covered" >function(data){        	</span></span>
+<span class="cstat-no" title="statement not covered" >                ContractResource.contractFilter({}, JSON.stringify($scope.filterObj)).$promise.then(<span class="fstat-no" title="function not covered" >function(data){        	</span></span>
 <span class="cstat-no" title="statement not covered" >                    $scope.contracts = data;</span>
 <span class="cstat-no" title="statement not covered" >                    $scope.loading = false;</span>
 <span class="cstat-no" title="statement not covered" >                    $scope.generateCalculations();</span>
@@ -616,7 +619,7 @@
                     	year : $scope.yearDropdown,
                     	teamId : $routeParams.id
                     });              
-<span class="cstat-no" title="statement not covered" >                    TransactionResource.tryGetLastTransaction(<span class="fstat-no" title="function not covered" >function(data){</span></span>
+<span class="cstat-no" title="statement not covered" >                    TransactionResource.tryGetLastTransaction().$promise.then(<span class="fstat-no" title="function not covered" >function(data){</span></span>
 <span class="cstat-no" title="statement not covered" >                    	if(data.message!=undefined){</span>
 <span class="cstat-no" title="statement not covered" >                    		$scope.showNotification(data);</span>
                     	}
@@ -656,12 +659,12 @@
 <span class="cstat-no" title="statement not covered" >            $scope.performAction = <span class="fstat-no" title="function not covered" >function(action, contract){</span></span>
 <span class="cstat-no" title="statement not covered" >                switch(action) {</span>
                     case 'cut':
-<span class="cstat-no" title="statement not covered" >                        RosterActionResource.cut({}, contract.id, <span class="fstat-no" title="function not covered" >function(data){</span></span>
+<span class="cstat-no" title="statement not covered" >                        RosterActionResource.cut({}, contract.id).$promise.then(<span class="fstat-no" title="function not covered" >function(data){</span></span>
 <span class="cstat-no" title="statement not covered" >                            $scope.init();</span>
                         });
 <span class="cstat-no" title="statement not covered" >                        break;</span>
                     case 'june1cut':
-<span class="cstat-no" title="statement not covered" >                        RosterActionResource.june1cut({}, contract.id, <span class="fstat-no" title="function not covered" >function(data){</span></span>
+<span class="cstat-no" title="statement not covered" >                        RosterActionResource.june1cut({}, contract.id).$promise.then(<span class="fstat-no" title="function not covered" >function(data){</span></span>
 <span class="cstat-no" title="statement not covered" >                        	$scope.init();</span>
                         });
 <span class="cstat-no" title="statement not covered" >                        break;</span>
@@ -694,7 +697,7 @@
              * BOOTSTRAP MODALS
              */
 <span class="cstat-no" title="statement not covered" >            $scope.openTransactionModal = <span class="fstat-no" title="function not covered" >function () {</span></span>
-<span class="cstat-no" title="statement not covered" >                TransactionResource.getByTeam({teamId : $scope.team.id}, <span class="fstat-no" title="function not covered" >function(data){</span></span>
+<span class="cstat-no" title="statement not covered" >                TransactionResource.getByTeam({teamId : $scope.team.id}).$promise.then(<span class="fstat-no" title="function not covered" >function(data){</span></span>
 <span class="cstat-no" title="statement not covered" >                	$rootScope.transactionsModifiedFromModal = false;</span>
 <span class="cstat-no" title="statement not covered" >                    var modalInstance = $modal.open({</span>
                         templateUrl: 'app/views/modals/transactionTemplate.html',
@@ -775,7 +778,7 @@
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Mar 18 2015 20:44:40 GMT-0400 (Eastern Daylight Time)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Mar 18 2015 22:12:32 GMT-0400 (Eastern Daylight Time)</div>
 </div>
 
 <script src="../../../prettify.js"></script>

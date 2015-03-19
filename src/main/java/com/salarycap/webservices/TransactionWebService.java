@@ -1,6 +1,9 @@
 package com.salarycap.webservices;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -34,8 +37,15 @@ public class TransactionWebService {
 	}	
 	
 	@RequestMapping(value="{transactionId}", method=RequestMethod.GET)
-	public Transaction getById(@PathVariable Integer transactionId){
-		return transactionService.getTransactionById(transactionId);
+	public Transaction getById(@PathVariable Integer transactionId, HttpServletResponse response) throws IOException{
+		Transaction transaction = null;
+		try{
+			transaction = transactionService.getTransactionById(transactionId);
+		}
+		catch(Exception e){
+			response.sendError(500, e.getMessage());
+		}
+		return transaction;
 	}
 	
 	@RequestMapping(value="/player/{playerId}", method=RequestMethod.GET)
@@ -49,8 +59,12 @@ public class TransactionWebService {
 	}
 	
 	@RequestMapping(value="/undo/{id}", method=RequestMethod.POST)
-	public void undoTransaction(@PathVariable Integer id){
-		transactionService.undoTransaction(transactionService.getTransactionById(id));
+	public void undoTransaction(@PathVariable Integer id, HttpServletResponse response) throws IOException{
+		try {
+			transactionService.undoTransaction(transactionService.getTransactionById(id));
+		} catch (Exception e) {
+			response.sendError(500, e.getMessage());
+		}
 	}
 	
 	@RequestMapping(value="/lastTransaction", method=RequestMethod.GET)
