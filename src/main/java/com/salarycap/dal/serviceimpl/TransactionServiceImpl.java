@@ -95,7 +95,7 @@ public class TransactionServiceImpl implements TransactionService {
 	}
 
 	@Override
-	public Transaction getTransactionById(Integer transactionId) {
+	public Transaction getTransactionById(Integer transactionId) throws Exception {
 		return this.transactionDal.getById(transactionId);
 	}
 

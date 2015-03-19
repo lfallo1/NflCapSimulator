@@ -32,13 +32,13 @@ public class TransactionDal {
 		transactions.remove(transaction);
 	}
 
-	public Transaction getById(Integer transactionId) {
+	public Transaction getById(Integer transactionId) throws Exception {
 		for (Transaction transaction : transactions) {
 			if(transaction.getId().equals(transactionId)){
 				return transaction;
 			}
 		}
-		return null;
+		throw new Exception("Transaction could not be found");
 	}
 
 	public List<Transaction> getByPlayer(Integer playerId) {

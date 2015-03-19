@@ -8,12 +8,12 @@
 		else{
 			ContractResource.get({
 				id : $routeParams.id
-			}, function(data){
+			}).$promise.then(function(data){
 				$scope.contract = data;
 				$scope.player = $scope.contract.player;
 				ContractResource.getByPlayer({
 					id : $scope.contract.player.id 
-				}, function(data){
+				}).$promise.then(function(data){
 					$scope.allPlayerContracts = data.filter(function(d){
 						if(d.status === 'Contract' && d.year >= $scope.contract.year){
 							return d;
@@ -23,13 +23,13 @@
 				
 				CalculationResource.getAllSalariesByTeam({
 		            	team : $scope.contract.team
-		            }, function(data){
+		            }).$promise.then(function(data){
 		            	$scope.currentTeamSalary = data.filter(function(d){if(d.year === $scope.contract.year){return d;}})[0];
 	            });
 			
 				TeamResource.get({
 					id:$scope.contract.team
-				}, function(data){
+				}).$promise.then(function(data){
 					$scope.currentTeam = data;
 					$rootScope.readyState = true;
 				});
@@ -50,7 +50,7 @@
 				contractId : $scope.contract.id,
 				newTeamId : $scope.selectedTeam,
 				playerId : $scope.contract.player.id
-			}, function(){
+			}).$promise.then(function(){
 				$scope.goToTeamPage();
 			});
 		}

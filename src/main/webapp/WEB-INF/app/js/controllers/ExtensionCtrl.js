@@ -12,17 +12,17 @@
 		else if($routeParams.contractId != null && !isNaN($routeParams.contractId)){
 			ContractResource.get({
 				id : $routeParams.contractId
-			}, function(data){
+			}).$promise.then(function(data){
 				$scope.contract = data;
 				$scope.year = $scope.contract.year;
 				
-				TeamResource.get({id : $scope.contract.team}, function(data){
+				TeamResource.get({id : $scope.contract.team}).$promise.then(function(data){
 					$scope.team = data;
 				});				
 				
 				ContractResource.getByPlayer({
 					id : $scope.contract.player.id
-				}, function(data){
+				}).$promise.then(function(data){
 					$scope.contracts = data.filter(function(d){
 						if(d.year>=$scope.contract.year && d.status === 'Contract'){
 							return d;
@@ -32,7 +32,7 @@
 				});
 			});
 			
-			MinimumSalaryResource.query(function(data){
+			MinimumSalaryResource.query().$promise.then(function(data){
 				$scope.minimumSalaries = data;
 			});
 		}
@@ -50,7 +50,7 @@
     		MinimumSalaryResource.getByYearAndCreditedSeasons({
     			year : year,
     			cs : creditedSeasons
-    		}, function(data){
+    		}).$promise.then(function(data){
     			return data.minimumSalary;
     		});
         };
@@ -114,7 +114,7 @@
             		"additionalYears" : $scope.selectedYears.id,
             		"totalYears" : $scope.selectedYears.id + $scope.contracts.length,
             		"contractDtoList" : $scope.extensionObjList
-        		}, function(data){
+        		}).$promise.then(function(data){
         			$location.path("/team/" + $scope.contract.team);
         		});
         	}

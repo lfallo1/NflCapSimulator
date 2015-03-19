@@ -13,12 +13,12 @@
 			    		else{
 							TeamResource.get({
 								id : $routeParams.teamId
-							}, function(data) {
+							}).$promise.then(function(data) {
 								$scope.team = data;
 								$rootScope.readyState = true;
 							});
 	
-							MinimumSalaryResource.query(function(data) {
+							MinimumSalaryResource.query().$promise.then(function(data) {
 								$scope.minimumSalaries = data;
 								$scope.initExistingSalaries();
 							});
@@ -217,7 +217,7 @@
 															.getFullYear(),
 													'signingBonus' : $scope.contractObj.signingBonus.value,
 													'contractDtoList' : contractList
-												}, function(data) {
+												}).$promise.then(function(data) {
 													$location.path("/team/"
 															+ $scope.team.id);
 												});
