@@ -15,8 +15,15 @@
 				'freeAgent' : "",
 				'contractLength' : 0
 			}
-			var sortedContracts = contracts.sort(function(a,b){return a.year < b.year ? 1 : a.year > b.year ? -1 : 0;});
-			for(var i = 0; i < contractOverview.years+1; i++){
+			
+			//last year - length = start year
+			//start index is start year - first year
+			var filteredContracts = contracts.filter(function(d){if(d.status === 'Contract'){return d;}});
+			var sortedContracts = filteredContracts.sort(function(a,b){return a.year > b.year ? 1 : a.year < b.year ? -1 : 0;});
+			var startYearOfCurrentContract = sortedContracts[sortedContracts.length-1].year - contractOverview.years + 1;
+			var length = sortedContracts[sortedContracts.length-1].year - startYearOfCurrentContract + 1;
+			var startingIndex = startYearOfCurrentContract - sortedContracts[0].year;
+			for(var i = startingIndex; i < startingIndex + length; i++){
 				overview.totalValue += sortedContracts[i].capCharge;
 				overview.guaranteed += sortedContracts[i].signingBonus + sortedContracts[i].optionBonus + sortedContracts[i].guaranteedBaseSalary;
 			}

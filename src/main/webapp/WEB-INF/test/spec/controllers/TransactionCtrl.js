@@ -41,6 +41,10 @@ describe('Controller: HomeCtrl', function() {
 			'$promise' : TransactionResourceDeferred.promise
 		});
 		
+		$scope.transaction = {
+			'teamId' : 1
+		};
+		
 		//create controller instance
 		$controller('TransactionCtrl', {
 			'$rootScope' : $rootScope,
@@ -86,11 +90,28 @@ describe('Controller: HomeCtrl', function() {
 	});
 	
 	it('should redirect user to team page', function(){
-		$scope.transaction = {
-			'teamId' : 1
-		};
 		$scope.viewTeamPage();
 		expect($location.path()).toBe("/team/" + $scope.transaction.teamId);
+	});
+	
+	it('should undo the transaction and redirect back to the team page', function(){
+		var success = {
+			'data' : {
+				'transaction' : {
+					'teamId' : 1
+				}
+			}
+		};
+		
+		$scope.init();
+		TransactionResourceDeferred.resolve(success);
+		$scope.$digest();
+		
+		$scope.undo();
+		TransactionResourceDeferred.resolve();
+		$scope.$digest();
+		
+		expect($location.path()).toBe('/team/' + $scope.transaction.teamId);
 	});
 
 });
