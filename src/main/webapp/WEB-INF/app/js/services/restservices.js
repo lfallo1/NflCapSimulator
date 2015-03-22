@@ -2,7 +2,7 @@
 
     var restServices = angular.module('restservices', ['ngResource']);
 
-    restServices.service('ContractResource', function($resource) {
+    restServices.service('ContractResource', ['$resource', function($resource) {
         return $resource("api/yearlycontracts/:id", {}, {
             contractFilter: {
                 method: "POST",
@@ -33,9 +33,9 @@
             	url : "api/yearlycontracts/calculateTotalSalary/:yearType/:year/:teamId"
             }
         });
-    });
+    }]);
     
-    restServices.service('ContractOverviewResource', function($resource){
+    restServices.service('ContractOverviewResource', [ '$resource',  function($resource){
     	return $resource("api/contractoverview/:id", {}, {
     		getByPlayer : {
     			method : "GET",
@@ -43,9 +43,9 @@
     			isArray : false
     		}
     	})
-    });
+    }]);
     
-    restServices.service('CalculationResource', function($resource){
+    restServices.service('CalculationResource', [ '$resource', function($resource){
     	return $resource("api/calculation/:id", {},{
     		getHighestPaid : {
     			method : "GET",
@@ -63,13 +63,13 @@
     			isArray : true
     		}
     	});
-    });
+    }]);
 
-    restServices.service('ContractStatusResource', function($resource){
+    restServices.service('ContractStatusResource', [ '$resource', function($resource){
         return $resource("api/contractstatus/:id");
-    });
+    }]);
 
-    restServices.service('SalaryCapConstantsResource', function($resource){
+    restServices.service('SalaryCapConstantsResource', [ '$resource', function($resource){
         return $resource("api/salarycapconstants/:id", {},{
         	getByYearAndTeam : {
         		method : "GET",
@@ -82,14 +82,14 @@
         		isArray : true
         	}
         });
-    });
+    }]);
     
-    restServices.service('PositionResource', function($resource){
+    restServices.service('PositionResource', [ '$resource', function($resource){
         return $resource("api/position/:id");
-    });    
+    }]);    
     
 
-    restServices.service('RosterActionResource', function($resource){
+    restServices.service('RosterActionResource', [ '$resource', function($resource){
         return $resource("api/rosteractions/:id", {}, {
             cut : {
                 method : "POST",
@@ -127,9 +127,9 @@
             	url : "api/rosteractions/reset"
             }
         });
-    });
+    }]);
 
-    restServices.service('TransactionResource', function($resource){
+    restServices.service('TransactionResource', [ '$resource', function($resource){
         return $resource("api/transactions/:id", {}, {
             getByPlayer : {
             	method : "GET",
@@ -151,22 +151,22 @@
             	isArray : false
             }
         });
-    });
+    }]);
     
-    restServices.service('PlayerResource', function($resource){
+    restServices.service('PlayerResource', [ '$resource', function($resource){
     	return $resource("api/players/:id");
-    });
+    }]);
     
-    restServices.service('MinimumSalaryResource', function($resource){
+    restServices.service('MinimumSalaryResource', [ '$resource', function($resource){
     	return $resource("api/minimumsalary/:id", {}, {
     		getByYearAndCreditedSeasons : {
     			method : "GET",
     			url : "api/minimumsalary/:year/:cs"
     		}
     	});
-    });
+    }]);
     
-    restServices.service('DeadMoneyResource', function($resource){
+    restServices.service('DeadMoneyResource', [ '$resource', function($resource){
     	return $resource("api/deadmoney/:id", {}, {
     		getByYearAndTeam : {
     			method : "GET",
@@ -179,10 +179,10 @@
     			isArray : true
     		}
     	});
-    });    
+    }]);    
     
-    restServices.service('TeamResource', function($resource){
+    restServices.service('TeamResource', [ '$resource', function($resource){
     	return $resource("api/team/:id");
-    });
+    }]);
 
 }());

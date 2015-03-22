@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html ng-app="salaryCapApp" ng-controller="MainCtrl">
+<html ng-app="salaryCapApp" ng-controller="CssCtrl">
 <head>
     <title>Salary Cap App</title>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -20,12 +20,15 @@
     <script src="bower/angularjs-dropdown-multiselect/dist/angularjs-dropdown-multiselect.min.js" type="text/javascript"></script>
     <script src="app/js/app.js" type="text/javascript"></script>
     <script src="app/js/controllers.js" type="text/javascript"></script>
+    <script src="app/js/services/application.js" type="text/javascript"></script>
     <script src="app/js/services/restservices.js" type="text/javascript"></script>
     <script src="app/js/services/utilityservices.js" type="text/javascript"></script>
     <script src="app/js/services/extensionservices.js" type="text/javascript"></script>
     <script src="app/js/services/rosterservices.js" type="text/javascript"></script>
     <script src="app/js/services/validation.js" type="text/javascript"></script>
-    <script src="app/js/controllers/MainCtrl.js" type="text/javascript"></script>
+    <script src="app/js/controllers/CssCtrl.js" type="text/javascript"></script>
+    <script src="app/js/controllers/NavCtrl.js" type="text/javascript"></script>
+    <script src="app/js/controllers/NotificationCtrl.js" type="text/javascript"></script>
     <script src="app/js/controllers/HomeCtrl.js" type="text/javascript"></script>
     <script src="app/js/controllers/TeamCtrl.js" type="text/javascript"></script>
     <script src="app/js/controllers/TransactionCtrl.js" type="text/javascript"></script>
@@ -52,7 +55,7 @@
 </head>
 <body>
 <!-- Navigation Bar -->
-<nav role="navigation" class="navbar navbar-default">
+<nav role="navigation" class="navbar navbar-default" ng-controller="NavCtrl">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#toggle-items">
             <span class="icon-bar"></span>
@@ -63,28 +66,22 @@
     </div>
     <div id="toggle-items" class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav navbar-left">
-            <li><a class="navbar-item" href="#/">Home</a></li>
-            <li><a class="navbar-item" href="#/calculations">Calculations</a></li>
-            <li><a class="navbar-item" href="#/transactions">All Transactions</a></li>
+            <li><a class="navbar-item" href="" ng-click="navigate('/')">Home</a></li>
+            <li><a class="navbar-item" href="" ng-click="navigate('/calculations')">Calculations</a></li>
+            <li><a class="navbar-item" href="" ng-click="navigate('/transactions')">All Transactions</a></li>
             <li><a class="navbar-item" href="" ng-click="reset()">Reset</a></li>
         </ul>
         <span class="right-align"><p>Contract data courtesy of Jason Fitzgerald at <a href="http://overthecap.com/"><img id="otclogo" src="app/images/otc-logo.png" /></a></span>
     </div>
 </nav>
 <div class="container">
-	<!-- Reset Notificaion Dialogue -->
-	<div class="row" id="roster-reset-notification-div" ng-show="resetRosterNotification">
-		<div class="col-md-8 col-md-offset-2">
-			<h3><img ng-src="app/images/loading.gif" /> {{resetRosterNotification}}</h3>
-		</div>
-	</div>
-	<div class="startup" ng-show="readyState===false">
+	<div class="startup" ng-show="!readyState" ng-controller="NotificationCtrl">
 		<div class="loading-wrapper">
-			<h3><img ng-src="app/images/loading.gif" /> Application is Starting...</h3>
+			<h3><img ng-src="app/images/loading.gif" /><span ng-bind="getCurrentApplicationMessage()"></span></h3>
 		</div>
 	</div>	
 	<!-- Views -->
-    <div ng-view></div>
+    <div ng-view ng-show="readyState" class="animated fadeIn"></div>
 </div>
 <hr>
 <div class="footer">

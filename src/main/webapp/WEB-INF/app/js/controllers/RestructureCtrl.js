@@ -2,16 +2,25 @@
  * 
  */
 (function(){
-	angular.module('app.controllers').controller('RestructureCtrl', function($rootScope, $scope, $routeParams, $location, ContractResource, PlayerResource, MinimumSalaryResource, RosterActionResource, TeamResource){
+	angular.module('app.controllers').controller('RestructureCtrl', [
+							'$rootScope',
+							'$scope',
+							'$routeParams',
+							'$location',
+							'ContractResource',
+							'PlayerResource',
+							'MinimumSalaryResource',
+							'RosterActionResource',
+							'TeamResource',
+							'MessageServices',
+							'TransactionResource',
+        function($rootScope, $scope, $routeParams, $location, ContractResource, PlayerResource, MinimumSalaryResource, RosterActionResource, TeamResource, MessageServices, TransactionResource){
 		$scope.yearsRemaining = 0;
 		$scope.amount = 25000;
 		$scope.title = "Restructure";
 		$scope.restructurePossible = true;
 		
-		if($rootScope.readyState ===false){
-			$location.path("/");
-		}		
-		else if($routeParams.contractId != null){
+		if($routeParams.contractId != null){
 			ContractResource.get({
 				id : $routeParams.contractId
 			}).$promise.then(function(data){
@@ -55,7 +64,10 @@
 					contractId : $routeParams.contractId,
 					amount : $scope.amount
 				}).$promise.then(function(data){
-					$location.path("/team/" + $scope.team.id);
+                    TransactionResource.tryGetLastTransaction().$promise.then(function(data){
+                    	  MessageServices.setRosterActionMessage(data.message)        	  
+                          $location.path("/team/" + $scope.team.id);
+                      });					
 				}, function(err){
 					console.log(err.statusText);
 				});
@@ -104,5 +116,5 @@
 			} : null
 		}
 				
-	});
+	}]);
 })();

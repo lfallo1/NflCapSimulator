@@ -21,10 +21,10 @@
         Statements: <span class="metric">1.92% <small>(2 / 104)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">0% <small>(0 / 46)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 44)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">3.57% <small>(1 / 28)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">3.45% <small>(1 / 29)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Lines: <span class="metric">1.98% <small>(2 / 101)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -295,8 +295,7 @@
 258
 259
 260
-261
-262</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+261</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -305,10 +304,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -516,6 +512,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -558,272 +556,271 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function() {
-	angular
-			.module('app.controllers')
-			.controller(
-					'CreatePlayerCtrl',
-<span class="fstat-no" title="function not covered" >					function($rootScope, $scope, $location, $routeParams, $modal, ContractResource,</span>
-							TransactionResource, RosterActionResource,
-							PositionResource, TeamResource,
-							MinimumSalaryResource, ArrayServices, GenericValidator, SalaryValidator) {
-<span class="cstat-no" title="statement not covered" >			    		if($rootScope.readyState ===false){</span>
-<span class="cstat-no" title="statement not covered" >			    			$location.path("/");</span>
-			    		}
-			    		else{
-<span class="cstat-no" title="statement not covered" >							TeamResource.get({</span>
-								id : $routeParams.teamId
-							}).$promise.then(<span class="fstat-no" title="function not covered" >function(data) {</span>
-<span class="cstat-no" title="statement not covered" >								$scope.team = data;</span>
-<span class="cstat-no" title="statement not covered" >								$rootScope.readyState = true;</span>
-							});
+	angular.module('app.controllers').controller('CreatePlayerCtrl', ['$rootScope', '$scope', '$location', '$routeParams', '$modal', 'ContractResource',
+			'TransactionResource', 'RosterActionResource',
+			'PositionResource', 'TeamResource',
+			'MinimumSalaryResource', 'ArrayServices', 'GenericValidator', 'SalaryValidator', 'TransactionResource', 'MessageServices',
+<span class="fstat-no" title="function not covered" >	function($rootScope, $scope, $location, $routeParams, $modal, ContractResource,</span>
+			TransactionResource, RosterActionResource,
+			PositionResource, TeamResource,
+			MinimumSalaryResource, ArrayServices, GenericValidator, SalaryValidator, TransactionResource, MessageServices) {
+		
+<span class="cstat-no" title="statement not covered" >			TeamResource.get({</span>
+				id : $routeParams.teamId
+			}).$promise.then(<span class="fstat-no" title="function not covered" >function(data) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.team = data;</span>
+<span class="cstat-no" title="statement not covered" >				$rootScope.readyState = true;</span>
+			});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			MinimumSalaryResource.query().$promise.then(<span class="fstat-no" title="function not covered" >function(data) {</span></span>
+<span class="cstat-no" title="statement not covered" >				$scope.minimumSalaries = data;</span>
+<span class="cstat-no" title="statement not covered" >				$scope.initExistingSalaries();</span>
+			});
+			
+<span class="cstat-no" title="statement not covered" >			$scope.getMinimumSalary = <span class="fstat-no" title="function not covered" >function(year, creditedSeasons){</span></span>
+<span class="cstat-no" title="statement not covered" >				var cs = creditedSeasons &gt; 10 ? 10 : creditedSeasons;</span>
+<span class="cstat-no" title="statement not covered" >				if($scope.minimumSalaries){</span>
+<span class="cstat-no" title="statement not covered" >					return $scope.minimumSalaries.filter(<span class="fstat-no" title="function not covered" >function(d){<span class="cstat-no" title="statement not covered" ></span>if(d.year === year &amp;&amp; d.creditedSeasons === cs) <span class="cstat-no" title="statement not covered" >return d;}</span></span>)[0].baseSalary;	</span>
+				}
+			}
+			
 	
-<span class="cstat-no" title="statement not covered" >							MinimumSalaryResource.query().$promise.then(<span class="fstat-no" title="function not covered" >function(data) {</span></span>
-<span class="cstat-no" title="statement not covered" >								$scope.minimumSalaries = data;</span>
-<span class="cstat-no" title="statement not covered" >								$scope.initExistingSalaries();</span>
-							});
-							
-<span class="cstat-no" title="statement not covered" >							$scope.getMinimumSalary = <span class="fstat-no" title="function not covered" >function(year, creditedSeasons){</span></span>
-<span class="cstat-no" title="statement not covered" >								var cs = creditedSeasons &gt; 10 ? 10 : creditedSeasons;</span>
-<span class="cstat-no" title="statement not covered" >								if($scope.minimumSalaries){</span>
-<span class="cstat-no" title="statement not covered" >									return $scope.minimumSalaries.filter(<span class="fstat-no" title="function not covered" >function(d){<span class="cstat-no" title="statement not covered" ></span>if(d.year === year &amp;&amp; d.creditedSeasons === cs) <span class="cstat-no" title="statement not covered" >return d;}</span></span>)[0].baseSalary;	</span>
-								}
-							}
-			    		}
-&nbsp;
-						/**
-						 * Constants
-						 */
-<span class="cstat-no" title="statement not covered" >						$scope.title = "Create Player";</span>
-<span class="cstat-no" title="statement not covered" >						$scope.year = new Date().getFullYear();</span>
-					
-						/**
-						 * Properties
-						 */
-<span class="cstat-no" title="statement not covered" >						$scope.player = {</span>
-							'name' : {
-								value : 'John Doe',
-								annotations : [GenericValidator.NotEmptyAnnotation(), GenericValidator.MaxLengthAnnotation(25)]
-							},
-							'selectedContractLength' : {
-								value : 0,
-								annotations : [GenericValidator.NotEmptyAnnotation(), GenericValidator.LessThanAnnotation(8), GenericValidator.NumberAnnotation()]
-							},
-							'selectedAccruedSeasons' : {
-								value : 0,
-								annotations : [GenericValidator.NotEmptyAnnotation(), GenericValidator.LessThanAnnotation(14), GenericValidator.NumberAnnotation()]
-							},
-							'selectedPosition' : {
-								value : '',
-								annotations : [GenericValidator.NotEmptyAnnotation()]
-							},							
-						};
-<span class="cstat-no" title="statement not covered" >						$scope.contractObj = {</span>
-							'signingBonus' : {
-								value : 1000000,
-								annotations : [GenericValidator.NotEmptyAnnotation(), GenericValidator.BetweenAnnotation(0,200000000), GenericValidator.NumberAnnotation()]
-							},
-							'contractList' : []
-						};
-&nbsp;
-						/**
-						 * Contract Length Dropdown
-						 */
-<span class="cstat-no" title="statement not covered" >						$scope.contractLengths = ArrayServices.generateArrayOfNumbers(7, true);</span>
-<span class="cstat-no" title="statement not covered" >						$scope.player.selectedContractLength.value = $scope.contractLengths[0];</span>
-						
-						/**
-						 * Accrued Seasons Dropdown
-						 */
-<span class="cstat-no" title="statement not covered" >						$scope.accruedSeasons = ArrayServices.generateArrayOfNumbers(14);</span>
-<span class="cstat-no" title="statement not covered" >						$scope.player.selectedAccruedSeasons.value = $scope.accruedSeasons[0];</span>
-&nbsp;
-						/**
-						 * Position Dropdown
-						 */
-<span class="cstat-no" title="statement not covered" >						PositionResource.query(<span class="fstat-no" title="function not covered" >function(data) {</span></span>
-<span class="cstat-no" title="statement not covered" >							$scope.positions = data.map(<span class="fstat-no" title="function not covered" >function(d){<span class="cstat-no" title="statement not covered" ></span>return d.positionName}</span>);</span>
-<span class="cstat-no" title="statement not covered" >							$scope.player.selectedPosition.value = $scope.positions[0];</span>
-						});
-&nbsp;
-<span class="cstat-no" title="statement not covered" >						$scope.getNumber = <span class="fstat-no" title="function not covered" >function(number) {</span></span>
-<span class="cstat-no" title="statement not covered" >							return new Array(parseInt(number));</span>
-						};
-						
-<span class="cstat-no" title="statement not covered" >						$scope.initExistingSalaries = <span class="fstat-no" title="function not covered" >function(){</span></span>
-<span class="cstat-no" title="statement not covered" >							for (var i = 0; i &lt; $scope.player.selectedContractLength.value; i++) {</span>
-<span class="cstat-no" title="statement not covered" >								var min = $scope.getMinimumSalary($scope.year + i, Number($scope.player.selectedAccruedSeasons.value) + i);</span>
-<span class="cstat-no" title="statement not covered" >								$scope.contractObj.contractList[i].baseSalary = !$scope.contractObj.contractList[i].baseSalary || $scope.contractObj.contractList[i].baseSalary &lt; min ? min : $scope.contractObj.contractList[i].baseSalary; </span>
-							}							
-						}			
-						
-<span class="cstat-no" title="statement not covered" >						$scope.accruedChangedEvent = <span class="fstat-no" title="function not covered" >function(){</span></span>
-<span class="cstat-no" title="statement not covered" >							for(var i = 0; i &lt; $scope.contractObj.contractList.length; i++){</span>
-<span class="cstat-no" title="statement not covered" >								var minSalary = $scope.getMinBaseSalary(i);</span>
-<span class="cstat-no" title="statement not covered" >								var currentBaseSalary = $scope.contractObj.contractList[i].baseSalary;</span>
-<span class="cstat-no" title="statement not covered" >								$scope.contractObj.contractList[i].baseSalary = currentBaseSalary &lt; minSalary ? minSalary : currentBaseSalary;</span>
-							}
-						}
-						
-<span class="cstat-no" title="statement not covered" >						$scope.getMinBaseSalary = <span class="fstat-no" title="function not covered" >function(index){</span></span>
-<span class="cstat-no" title="statement not covered" >							var baseSalary = $scope.getMinimumSalary($scope.year + index, Number($scope.player.selectedAccruedSeasons.value) + Number(index));</span>
-<span class="cstat-no" title="statement not covered" >							return baseSalary;</span>
-						}
-&nbsp;
-						/**
-						 * Calculate/Generate text/numeric values
-						 */
-<span class="cstat-no" title="statement not covered" >						$scope.getNameAndPosition = <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >							var position = $scope.player.selectedPosition.value !== undefined ? ' - '</span>
-									+ $scope.player.selectedPosition.value
-									: '';
-<span class="cstat-no" title="statement not covered" >							var name = $scope.player.name.value;</span>
-<span class="cstat-no" title="statement not covered" >							return name + position;</span>
-						}
-&nbsp;
-<span class="cstat-no" title="statement not covered" >						$scope.getSigningBonusProration = <span class="fstat-no" title="function not covered" >function(yearNumber) {</span></span>
-<span class="cstat-no" title="statement not covered" >							var prorationLen = $scope.player.selectedContractLength.value &gt; 5 ? 5</span>
-									: $scope.player.selectedContractLength.value;
-<span class="cstat-no" title="statement not covered" >							return yearNumber &gt; 5 ? 0</span>
-									: $scope.contractObj.signingBonus.value
-											/ prorationLen;
-						}
-&nbsp;
-<span class="cstat-no" title="statement not covered" >						$scope.getTotalValue = <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >							var totalValue = 0;</span>
-<span class="cstat-no" title="statement not covered" >							for (var i = 0; i &lt; $scope.player.selectedContractLength.value; i++) {</span>
-<span class="cstat-no" title="statement not covered" >								totalValue += $scope.contractObj.contractList[i] ? Number($scope.contractObj.contractList[i].baseSalary) : 0;</span>
-							}
-<span class="cstat-no" title="statement not covered" >							totalValue += Number($scope.contractObj.signingBonus.value);</span>
-<span class="cstat-no" title="statement not covered" >							return totalValue;</span>
-						}
-&nbsp;
-<span class="cstat-no" title="statement not covered" >						$scope.getTotalGuaranteed = <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >							var totalGuaranteed = 0;</span>
-<span class="cstat-no" title="statement not covered" >							for (var i = 0; i &lt; $scope.player.selectedContractLength.value; i++) {</span>
-<span class="cstat-no" title="statement not covered" >								totalGuaranteed += $scope.contractObj.contractList[i] &amp;&amp; $scope.contractObj.contractList[i].guaranteedBaseSalary ? Number($scope.contractObj.contractList[i].guaranteedBaseSalary) : 0;</span>
-							}
-<span class="cstat-no" title="statement not covered" >							totalGuaranteed += Number($scope.contractObj.signingBonus.value);</span>
-<span class="cstat-no" title="statement not covered" >							return totalGuaranteed;</span>
-						}
-&nbsp;
-<span class="cstat-no" title="statement not covered" >						$scope.getPctGuaranteed = <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >							return ((Number($scope.getTotalGuaranteed()) / Number($scope</span>
-									.getTotalValue())) * 100).toFixed(2)
-									+ "%";
-						};
-&nbsp;
-<span class="cstat-no" title="statement not covered" >						$scope.getAPY = <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >							return Number($scope.getTotalValue())</span>
-									/ $scope.player.selectedContractLength.value;
-						};
-						
-<span class="cstat-no" title="statement not covered" >						$scope.filterContractListByTotalContractLength = <span class="fstat-no" title="function not covered" >function(){</span></span>
-<span class="cstat-no" title="statement not covered" >							var contractList = [];</span>
-<span class="cstat-no" title="statement not covered" >							for(var i = 0; i &lt; $scope.player.selectedContractLength.value; i++){</span>
-<span class="cstat-no" title="statement not covered" >								contractList.push($scope.contractObj.contractList[i]);</span>
-							}
-<span class="cstat-no" title="statement not covered" >							return contractList;</span>
-						}
-&nbsp;
-						/**
-						 * Validation
-						 */
-<span class="cstat-no" title="statement not covered" >						$scope.isValid = <span class="fstat-no" title="function not covered" >function(objType, fieldName, index) {</span></span>
-<span class="cstat-no" title="statement not covered" >							if(objType === 'player'){</span>
-<span class="cstat-no" title="statement not covered" >								return GenericValidator.validate($scope.player[fieldName], fieldName);</span>
-							}
-							else <span class="cstat-no" title="statement not covered" >if(objType === 'contractObj'){</span>
-<span class="cstat-no" title="statement not covered" >								return GenericValidator.validate($scope.contractObj[fieldName], fieldName);</span>
-							}
-							else <span class="cstat-no" title="statement not covered" >if(objType === 'salary'){</span>
-<span class="cstat-no" title="statement not covered" >								var minimumSalary = $scope.getMinimumSalary(new Date().getFullYear() + index, Number($scope.player.selectedAccruedSeasons.value) + index);</span>
-<span class="cstat-no" title="statement not covered" >								return SalaryValidator.validate(minimumSalary, $scope.contractObj.contractList[index], new Date().getFullYear() + index);</span>
-							}
-						}
-						
-<span class="cstat-no" title="statement not covered" >						$scope.validateAll = <span class="fstat-no" title="function not covered" >function(){</span></span>
-<span class="cstat-no" title="statement not covered" >							for(var i = 0; i &lt; $scope.player.selectedContractLength.value; i++){</span>
-<span class="cstat-no" title="statement not covered" >								if(!$scope.isValid('salary', null, i).valid){</span>
-<span class="cstat-no" title="statement not covered" >									return false;</span>
-								}
-							}
-<span class="cstat-no" title="statement not covered" >							for(p in $scope.player){</span>
-<span class="cstat-no" title="statement not covered" >								if(!$scope.isValid('player', p, null).valid){</span>
-<span class="cstat-no" title="statement not covered" >									return false;</span>
-								}
-							}
-<span class="cstat-no" title="statement not covered" >							if(!$scope.isValid('contractObj', 'signingBonus').valid){</span>
-<span class="cstat-no" title="statement not covered" >								return false;</span>
-							}
-<span class="cstat-no" title="statement not covered" >							return true;</span>
-						}
-						
-						/**
-						 * Try to submit player
-						 */
-<span class="cstat-no" title="statement not covered" >						$scope.submit = <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >							if($scope.validateAll()){</span>
-<span class="cstat-no" title="statement not covered" >								var contractList = $scope.filterContractListByTotalContractLength();</span>
-<span class="cstat-no" title="statement not covered" >								RosterActionResource</span>
-										.addPlayer(
-												{},
-												{
-													'name' : $scope.player.name.value,
-													'position' : $scope.player.selectedPosition.value,
-													'accrued' : $scope.player.selectedAccruedSeasons.value,
-													'teamId' : $scope.team.id,
-													'year' : new Date()
-															.getFullYear(),
-													'signingBonus' : $scope.contractObj.signingBonus.value,
-													'contractDtoList' : contractList
-												}).$promise.then(<span class="fstat-no" title="function not covered" >function(data) {</span>
-<span class="cstat-no" title="statement not covered" >													$location.path("/team/"</span>
-															+ $scope.team.id);
-												});
-							}
-							else{
-<span class="cstat-no" title="statement not covered" >								$scope.openErrorModal();</span>
-							}
-						};
-&nbsp;
-<span class="cstat-no" title="statement not covered" >						$scope.cancel = <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >							$location.path("/team/" + $scope.team.id);</span>
-						}
-						
-			            /**
-			             * BOOTSTRAP MODALS
-			             */
-<span class="cstat-no" title="statement not covered" >			            $scope.openErrorModal = <span class="fstat-no" title="function not covered" >function () {</span></span>
-<span class="cstat-no" title="statement not covered" >		                    var modalInstance = $modal.open({</span>
-		                        templateUrl: 'app/views/modals/errorSubmittingFormTemplate.html',
-		                        controller: 'ErrorModalInstanceController'
-			                });
-<span class="cstat-no" title="statement not covered" >		                    modalInstance.result.then(<span class="fstat-no" title="function not covered" >function (selectedItem) {</span></span>
-<span class="cstat-no" title="statement not covered" >		                        $scope.selected = selectedItem;</span>
-		                    });
-			            };						
-&nbsp;
-						/**
-						 * Dynamic Css Styling
-						 */
-<span class="cstat-no" title="statement not covered" >						$scope.getBackground = <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >							return $scope.team ? {</span>
-								'background' : '#' + $scope.team.primaryColor
-							} : null;
-						}
-&nbsp;
-<span class="cstat-no" title="statement not covered" >						$scope.getPrimaryTextColor = <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >							return $scope.team ? {</span>
-								'color' : '#' + $scope.team.primaryColor
-							} : null;
-						}
-					});
+			/**
+			 * Constants
+			 */
+<span class="cstat-no" title="statement not covered" >			$scope.title = "Create Player";</span>
+<span class="cstat-no" title="statement not covered" >			$scope.year = new Date().getFullYear();</span>
+		
+			/**
+			 * Properties
+			 */
+<span class="cstat-no" title="statement not covered" >			$scope.player = {</span>
+				'name' : {
+					value : 'John Doe',
+					annotations : [GenericValidator.NotEmptyAnnotation(), GenericValidator.MaxLengthAnnotation(25)]
+				},
+				'selectedContractLength' : {
+					value : 0,
+					annotations : [GenericValidator.NotEmptyAnnotation(), GenericValidator.LessThanAnnotation(8), GenericValidator.NumberAnnotation()]
+				},
+				'selectedAccruedSeasons' : {
+					value : 0,
+					annotations : [GenericValidator.NotEmptyAnnotation(), GenericValidator.LessThanAnnotation(14), GenericValidator.NumberAnnotation()]
+				},
+				'selectedPosition' : {
+					value : '',
+					annotations : [GenericValidator.NotEmptyAnnotation()]
+				},							
+			};
+<span class="cstat-no" title="statement not covered" >			$scope.contractObj = {</span>
+				'signingBonus' : {
+					value : 1000000,
+					annotations : [GenericValidator.NotEmptyAnnotation(), GenericValidator.BetweenAnnotation(0,200000000), GenericValidator.NumberAnnotation()]
+				},
+				'contractList' : []
+			};
+	
+			/**
+			 * Contract Length Dropdown
+			 */
+<span class="cstat-no" title="statement not covered" >			$scope.contractLengths = ArrayServices.generateArrayOfNumbers(7, true);</span>
+<span class="cstat-no" title="statement not covered" >			$scope.player.selectedContractLength.value = $scope.contractLengths[0];</span>
+			
+			/**
+			 * Accrued Seasons Dropdown
+			 */
+<span class="cstat-no" title="statement not covered" >			$scope.accruedSeasons = ArrayServices.generateArrayOfNumbers(14);</span>
+<span class="cstat-no" title="statement not covered" >			$scope.player.selectedAccruedSeasons.value = $scope.accruedSeasons[0];</span>
+	
+			/**
+			 * Position Dropdown
+			 */
+<span class="cstat-no" title="statement not covered" >			PositionResource.query(<span class="fstat-no" title="function not covered" >function(data) {</span></span>
+<span class="cstat-no" title="statement not covered" >				$scope.positions = data.map(<span class="fstat-no" title="function not covered" >function(d){<span class="cstat-no" title="statement not covered" ></span>return d.positionName}</span>);</span>
+<span class="cstat-no" title="statement not covered" >				$scope.player.selectedPosition.value = $scope.positions[0];</span>
+			});
+	
+<span class="cstat-no" title="statement not covered" >			$scope.getNumber = <span class="fstat-no" title="function not covered" >function(number) {</span></span>
+<span class="cstat-no" title="statement not covered" >				return new Array(parseInt(number));</span>
+			};
+			
+<span class="cstat-no" title="statement not covered" >			$scope.initExistingSalaries = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >				for (var i = 0; i &lt; $scope.player.selectedContractLength.value; i++) {</span>
+<span class="cstat-no" title="statement not covered" >					var min = $scope.getMinimumSalary($scope.year + i, Number($scope.player.selectedAccruedSeasons.value) + i);</span>
+<span class="cstat-no" title="statement not covered" >					$scope.contractObj.contractList[i].baseSalary = !$scope.contractObj.contractList[i].baseSalary || $scope.contractObj.contractList[i].baseSalary &lt; min ? min : $scope.contractObj.contractList[i].baseSalary; </span>
+				}							
+			}			
+			
+<span class="cstat-no" title="statement not covered" >			$scope.accruedChangedEvent = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >				for(var i = 0; i &lt; $scope.contractObj.contractList.length; i++){</span>
+<span class="cstat-no" title="statement not covered" >					var minSalary = $scope.getMinBaseSalary(i);</span>
+<span class="cstat-no" title="statement not covered" >					var currentBaseSalary = $scope.contractObj.contractList[i].baseSalary;</span>
+<span class="cstat-no" title="statement not covered" >					$scope.contractObj.contractList[i].baseSalary = currentBaseSalary &lt; minSalary ? minSalary : currentBaseSalary;</span>
+				}
+			}
+			
+<span class="cstat-no" title="statement not covered" >			$scope.getMinBaseSalary = <span class="fstat-no" title="function not covered" >function(index){</span></span>
+<span class="cstat-no" title="statement not covered" >				var baseSalary = $scope.getMinimumSalary($scope.year + index, Number($scope.player.selectedAccruedSeasons.value) + Number(index));</span>
+<span class="cstat-no" title="statement not covered" >				return baseSalary;</span>
+			}
+	
+			/**
+			 * Calculate/Generate text/numeric values
+			 */
+<span class="cstat-no" title="statement not covered" >			$scope.getNameAndPosition = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >				var position = $scope.player.selectedPosition.value !== undefined ? ' - '</span>
+						+ $scope.player.selectedPosition.value
+						: '';
+<span class="cstat-no" title="statement not covered" >				var name = $scope.player.name.value;</span>
+<span class="cstat-no" title="statement not covered" >				return name + position;</span>
+			}
+	
+<span class="cstat-no" title="statement not covered" >			$scope.getSigningBonusProration = <span class="fstat-no" title="function not covered" >function(yearNumber) {</span></span>
+<span class="cstat-no" title="statement not covered" >				var prorationLen = $scope.player.selectedContractLength.value &gt; 5 ? 5</span>
+						: $scope.player.selectedContractLength.value;
+<span class="cstat-no" title="statement not covered" >				return yearNumber &gt; 5 ? 0</span>
+						: $scope.contractObj.signingBonus.value
+								/ prorationLen;
+			}
+	
+<span class="cstat-no" title="statement not covered" >			$scope.getTotalValue = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >				var totalValue = 0;</span>
+<span class="cstat-no" title="statement not covered" >				for (var i = 0; i &lt; $scope.player.selectedContractLength.value; i++) {</span>
+<span class="cstat-no" title="statement not covered" >					totalValue += $scope.contractObj.contractList[i] ? Number($scope.contractObj.contractList[i].baseSalary) : 0;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				totalValue += Number($scope.contractObj.signingBonus.value);</span>
+<span class="cstat-no" title="statement not covered" >				return totalValue;</span>
+			}
+	
+<span class="cstat-no" title="statement not covered" >			$scope.getTotalGuaranteed = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >				var totalGuaranteed = 0;</span>
+<span class="cstat-no" title="statement not covered" >				for (var i = 0; i &lt; $scope.player.selectedContractLength.value; i++) {</span>
+<span class="cstat-no" title="statement not covered" >					totalGuaranteed += $scope.contractObj.contractList[i] &amp;&amp; $scope.contractObj.contractList[i].guaranteedBaseSalary ? Number($scope.contractObj.contractList[i].guaranteedBaseSalary) : 0;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				totalGuaranteed += Number($scope.contractObj.signingBonus.value);</span>
+<span class="cstat-no" title="statement not covered" >				return totalGuaranteed;</span>
+			}
+	
+<span class="cstat-no" title="statement not covered" >			$scope.getPctGuaranteed = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >				return ((Number($scope.getTotalGuaranteed()) / Number($scope</span>
+						.getTotalValue())) * 100).toFixed(2)
+						+ "%";
+			};
+	
+<span class="cstat-no" title="statement not covered" >			$scope.getAPY = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >				return Number($scope.getTotalValue())</span>
+						/ $scope.player.selectedContractLength.value;
+			};
+			
+<span class="cstat-no" title="statement not covered" >			$scope.filterContractListByTotalContractLength = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >				var contractList = [];</span>
+<span class="cstat-no" title="statement not covered" >				for(var i = 0; i &lt; $scope.player.selectedContractLength.value; i++){</span>
+<span class="cstat-no" title="statement not covered" >					contractList.push($scope.contractObj.contractList[i]);</span>
+				}
+<span class="cstat-no" title="statement not covered" >				return contractList;</span>
+			}
+	
+			/**
+			 * Validation
+			 */
+<span class="cstat-no" title="statement not covered" >			$scope.isValid = <span class="fstat-no" title="function not covered" >function(objType, fieldName, index) {</span></span>
+<span class="cstat-no" title="statement not covered" >				if(objType === 'player'){</span>
+<span class="cstat-no" title="statement not covered" >					return GenericValidator.validate($scope.player[fieldName], fieldName);</span>
+				}
+				else <span class="cstat-no" title="statement not covered" >if(objType === 'contractObj'){</span>
+<span class="cstat-no" title="statement not covered" >					return GenericValidator.validate($scope.contractObj[fieldName], fieldName);</span>
+				}
+				else <span class="cstat-no" title="statement not covered" >if(objType === 'salary'){</span>
+<span class="cstat-no" title="statement not covered" >					var minimumSalary = $scope.getMinimumSalary(new Date().getFullYear() + index, Number($scope.player.selectedAccruedSeasons.value) + index);</span>
+<span class="cstat-no" title="statement not covered" >					return SalaryValidator.validate(minimumSalary, $scope.contractObj.contractList[index], new Date().getFullYear() + index);</span>
+				}
+			}
+			
+<span class="cstat-no" title="statement not covered" >			$scope.validateAll = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >				for(var i = 0; i &lt; $scope.player.selectedContractLength.value; i++){</span>
+<span class="cstat-no" title="statement not covered" >					if(!$scope.isValid('salary', null, i).valid){</span>
+<span class="cstat-no" title="statement not covered" >						return false;</span>
+					}
+				}
+<span class="cstat-no" title="statement not covered" >				for(p in $scope.player){</span>
+<span class="cstat-no" title="statement not covered" >					if(!$scope.isValid('player', p, null).valid){</span>
+<span class="cstat-no" title="statement not covered" >						return false;</span>
+					}
+				}
+<span class="cstat-no" title="statement not covered" >				if(!$scope.isValid('contractObj', 'signingBonus').valid){</span>
+<span class="cstat-no" title="statement not covered" >					return false;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				return true;</span>
+			}
+			
+			/**
+			 * Try to submit player
+			 */
+<span class="cstat-no" title="statement not covered" >			$scope.submit = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >				if($scope.validateAll()){</span>
+<span class="cstat-no" title="statement not covered" >					var contractList = $scope.filterContractListByTotalContractLength();</span>
+<span class="cstat-no" title="statement not covered" >					RosterActionResource</span>
+							.addPlayer(
+									{},
+									{
+										'name' : $scope.player.name.value,
+										'position' : $scope.player.selectedPosition.value,
+										'accrued' : $scope.player.selectedAccruedSeasons.value,
+										'teamId' : $scope.team.id,
+										'year' : new Date()
+												.getFullYear(),
+										'signingBonus' : $scope.contractObj.signingBonus.value,
+										'contractDtoList' : contractList
+									}).$promise.then(<span class="fstat-no" title="function not covered" >function(data) {</span>
+<span class="cstat-no" title="statement not covered" >					                    TransactionResource.tryGetLastTransaction().$promise.then(<span class="fstat-no" title="function not covered" >function(data){</span></span>
+<span class="cstat-no" title="statement not covered" >					                    	  MessageServices.setRosterActionMessage(data.message)        	  </span>
+<span class="cstat-no" title="statement not covered" >					                          $location.path("/team/" + $scope.team.id);</span>
+					                      });	
+									});
+				}
+				else{
+<span class="cstat-no" title="statement not covered" >					$scope.openErrorModal();</span>
+				}
+			};
+	
+<span class="cstat-no" title="statement not covered" >			$scope.cancel = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >				$location.path("/team/" + $scope.team.id);</span>
+			}
+			
+	        /**
+	         * BOOTSTRAP MODALS
+	         */
+<span class="cstat-no" title="statement not covered" >	        $scope.openErrorModal = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >	            var modalInstance = $modal.open({</span>
+	                templateUrl: 'app/views/modals/errorSubmittingFormTemplate.html',
+	                controller: 'ErrorModalInstanceController'
+	            });
+<span class="cstat-no" title="statement not covered" >	            modalInstance.result.then(<span class="fstat-no" title="function not covered" >function (selectedItem) {</span></span>
+<span class="cstat-no" title="statement not covered" >	                $scope.selected = selectedItem;</span>
+	            });
+	        };						
+	
+			/**
+			 * Dynamic Css Styling
+			 */
+<span class="cstat-no" title="statement not covered" >			$scope.getBackground = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >				return $scope.team ? {</span>
+					'background' : '#' + $scope.team.primaryColor
+				} : null;
+			}
+	
+<span class="cstat-no" title="statement not covered" >			$scope.getPrimaryTextColor = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >				return $scope.team ? {</span>
+					'color' : '#' + $scope.team.primaryColor
+				} : null;
+			}
+		}]);
 })();</pre></td></tr>
 </table></pre>
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 19 2015 20:44:30 GMT-0400 (Eastern Daylight Time)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Mar 22 2015 19:26:41 GMT-0400 (Eastern Daylight Time)</div>
 </div>
 
 <script src="../../../prettify.js"></script>

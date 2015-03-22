@@ -1,10 +1,10 @@
-angular.module('app.controllers').controller('ErrorModalInstanceController', function ($scope, $modalInstance) {
+angular.module('app.controllers').controller('ErrorModalInstanceController', ['$scope', '$modalInstance', function ($scope, $modalInstance) {
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
-});
+}]);
 
-angular.module('app.controllers').controller('TransactionModalInstanceCtrl', function ($rootScope, $scope, $modalInstance, $location, transactions, TransactionResource) {
+angular.module('app.controllers').controller('TransactionModalInstanceCtrl', ['$rootScope', '$scope', '$modalInstance', '$location', 'transactions', 'TransactionResource', function ($rootScope, $scope, $modalInstance, $location, transactions, TransactionResource) {
 
     $scope.transactions = transactions;
 
@@ -31,9 +31,9 @@ angular.module('app.controllers').controller('TransactionModalInstanceCtrl', fun
     	$modalInstance.close('ok');
     	$location.path("/transaction/" + id);
     };    
-});
+}]);
 
-angular.module('app.controllers').controller('PlayerModalInstanceCtrl', function ($scope, $modalInstance, $location, details) {
+angular.module('app.controllers').controller('PlayerModalInstanceCtrl', ['$scope', '$modalInstance', '$location', 'details', function ($scope, $modalInstance, $location, details) {
 
     $scope.details = details;
     $scope.thisYear = new Date().getFullYear();
@@ -50,4 +50,4 @@ angular.module('app.controllers').controller('PlayerModalInstanceCtrl', function
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
-});
+}]);

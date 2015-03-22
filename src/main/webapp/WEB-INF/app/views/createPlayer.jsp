@@ -59,8 +59,8 @@
 			<div>Guaranteed: <span ng-bind="getTotalGuaranteed() | currency"></span></div>
 			<div>Percent Guaranteed <span ng-bind="getPctGuaranteed()"></span></div>
 			<hr>
-			<button class="submit-button success-background " ng-click="submit()" sc-enter-support>Submit</button>
-			<button class="submit-button error-bg" ng-click="cancel()">Cancel</button>
+			<button class="primary-button" ng-click="submit()" sc-enter-support>Submit</button>
+			<button class="danger-background primary-button" ng-click="cancel()">Cancel</button>
 		</div>		
 	</div>
 	<hr>

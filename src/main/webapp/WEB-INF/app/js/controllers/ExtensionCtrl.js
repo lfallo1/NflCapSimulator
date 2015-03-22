@@ -2,14 +2,11 @@
  * 
  */
 (function(){
-	angular.module('app.controllers').controller('ExtensionCtrl', function($rootScope, $scope, $routeParams, $location, ContractResource, PlayerResource, MinimumSalaryResource, ExtensionValidationService, RosterActionResource, TeamResource, ColorServices){
+	angular.module('app.controllers').controller('ExtensionCtrl', ['$rootScope', '$scope', '$routeParams', '$location', 'ContractResource', 'PlayerResource', 'MinimumSalaryResource', 'ExtensionValidationService', 'RosterActionResource', 'TeamResource', 'ColorServices', 'TransactionResource', 'MessageService', function($rootScope, $scope, $routeParams, $location, ContractResource, PlayerResource, MinimumSalaryResource, ExtensionValidationService, RosterActionResource, TeamResource, ColorServices, TransactionResource, MessageService){
 		$scope.title = "Extension";
 		$scope.signingBonus = 1000000;
 		$scope.extensionObj = [];
-		if($rootScope.readyState ===false){
-			$location.path("/");
-		}
-		else if($routeParams.contractId != null && !isNaN($routeParams.contractId)){
+		if($routeParams.contractId != null && !isNaN($routeParams.contractId)){
 			ContractResource.get({
 				id : $routeParams.contractId
 			}).$promise.then(function(data){
@@ -115,7 +112,10 @@
             		"totalYears" : $scope.selectedYears.id + $scope.contracts.length,
             		"contractDtoList" : $scope.extensionObjList
         		}).$promise.then(function(data){
-        			$location.path("/team/" + $scope.contract.team);
+                    TransactionResource.tryGetLastTransaction().$promise.then(function(data){
+                  	  MessageServices.setRosterActionMessage(data.message)        	  
+                        $location.path("/team/" + $scope.team.id);
+                    });	
         		});
         	}
         	else{
@@ -160,5 +160,5 @@
 				};
 		}
 		
-	});
+	}]);
 })();

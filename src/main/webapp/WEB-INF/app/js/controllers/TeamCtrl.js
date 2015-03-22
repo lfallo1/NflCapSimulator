@@ -1,6 +1,35 @@
 (function(){
     angular.module('app.controllers')
-        .controller('TeamCtrl', function ($rootScope, $scope, $log, $timeout, $modal, $location, $routeParams, ContractResource, ContractStatusResource, SalaryCapConstantsResource, TransactionResource, RosterActionResource, PositionResource, DeadMoneyResource, TeamResource, ListServices, ContractManagementService, ArrayServices) {
+        .controller(
+					'TeamCtrl',
+					[
+							'$rootScope',
+							'$scope',
+							'$log',
+							'$timeout',
+							'$modal',
+							'$location',
+							'$routeParams',
+							'ContractResource',
+							'ContractStatusResource',
+							'SalaryCapConstantsResource',
+							'TransactionResource',
+							'RosterActionResource',
+							'PositionResource',
+							'DeadMoneyResource',
+							'TeamResource',
+							'ListServices',
+							'ContractManagementService',
+							'ArrayServices',
+							'MessageServices',
+							function($rootScope, $scope, $log, $timeout,
+									$modal, $location, $routeParams,
+									ContractResource, ContractStatusResource,
+									SalaryCapConstantsResource,
+									TransactionResource, RosterActionResource,
+									PositionResource, DeadMoneyResource,
+									TeamResource, ListServices,
+									ContractManagementService, ArrayServices, MessageServices) {
 
         	//Init values
             $scope.notification = false;
@@ -16,10 +45,7 @@
             $scope.actions = ListServices.getRosterActionsList();            
             
             //Init
-    		if($rootScope.readyState === false){
-    			$location.path("/");
-    		}
-            else if($routeParams.id != null && !isNaN($routeParams.id) && $routeParams.id != 0){
+    		if($routeParams.id != null && !isNaN($routeParams.id) && $routeParams.id != 0){
                 TeamResource.get({id:$routeParams.id}).$promise.then(function(data){
                 	$scope.team = data;
                 	if($scope.team.name){
@@ -36,6 +62,7 @@
             
             //Get all contracts by team
             $scope.init = function(){
+            	showRosterActionMessage();
 	            ContractResource.getByTeam({
 	            	'teamId' : $routeParams.id
 	            }).$promise.then(function(data){
@@ -60,7 +87,6 @@
                         $scope.salaryCap = $scope.salaryCapConstants.salaryCap;
                         $scope.adjustedCap = $scope.salaryCapConstants.adjustedCap;
                         $scope.capRoom = $scope.adjustedCap - $scope.totalSalary;
-                        $rootScope.readyState = true;
                 	});
                 });
             };
@@ -90,11 +116,12 @@
                     	year : $scope.yearDropdown,
                     	teamId : $routeParams.id
                     });              
-                    TransactionResource.tryGetLastTransaction().$promise.then(function(data){
-                    	if(data.message!=undefined){
-                    		$scope.showNotification(data);
-                    	}
-                    });
+//                    TransactionResource.tryGetLastTransaction().$promise.then(function(data){
+//                    	if(data.message!=undefined){
+//                    		//$scope.showNotification(data);
+//                    		MessageServices.
+//                    	}
+//                    });
                 });
             };
 
@@ -131,12 +158,18 @@
                 switch(action) {
                     case 'cut':
                         RosterActionResource.cut({}, contract.id).$promise.then(function(data){
-                            $scope.init();
+                          TransactionResource.tryGetLastTransaction().$promise.then(function(data){
+                        	  MessageServices.setRosterActionMessage(data.message)
+                              $scope.init();
+                          });
                         });
                         break;
                     case 'june1cut':
                         RosterActionResource.june1cut({}, contract.id).$promise.then(function(data){
-                        	$scope.init();
+                            TransactionResource.tryGetLastTransaction().$promise.then(function(data){
+                          	  MessageServices.setRosterActionMessage(data.message)
+                              $scope.init();
+                            });
                         });
                         break;
                     case 'restructure':
@@ -152,13 +185,16 @@
                         break;
                 }
             };
-
-            $scope.showNotification = function(transactionInfo) {
-                $scope.notification = transactionInfo.message;
-                $timeout(function () {
-                    $scope.notification = false;
-                }, 3000);
-            };
+            
+		      var showRosterActionMessage = function() {
+		    	  if(MessageServices.getRosterActionMessage() !== undefined){
+			          $scope.notification = MessageServices.getRosterActionMessage();
+			          $timeout(function () {
+			              $scope.notification = false;
+			              MessageServices.setRosterActionMessage(undefined);
+			          }, 3000);
+		    	  }
+		      };
             
             $scope.addPlayer = function(){
             	$location.path("/createPlayer/" + $scope.team.id);
@@ -243,5 +279,5 @@
             	}
             }            
             
-        });
+        }]);
 })();

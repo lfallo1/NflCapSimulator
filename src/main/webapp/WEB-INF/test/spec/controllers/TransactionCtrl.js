@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: HomeCtrl', function() {
+describe('Controller: TransactionCtrl', function() {
 
 	var success = {
 		'status' : 200,
@@ -56,18 +56,6 @@ describe('Controller: HomeCtrl', function() {
 		});
 
 	}));
-
-	it('should redirect home due to undefined $routeParam', function(){
-		$routeParams.id = undefined;
-		$scope.init();
-		expect($location.path()).toBe("/");		
-	});
-	
-	it('should redirect home due to application not in ready state', function(){
-		$rootScope.readyState = false;
-		$scope.init();
-		expect($location.path()).toBe("/");
-	});
 	
 	it('should redirect home due to transaction not found', function(){
 		$rootScope.readyState = false;

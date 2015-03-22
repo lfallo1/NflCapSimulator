@@ -2,6 +2,7 @@
     var myApp = angular.module('salaryCapApp', [
         'ngRoute',
         'app.controllers',
+        'application',
         'ui.bootstrap',
         'angularjs-dropdown-multiselect'
     ]);
@@ -70,5 +71,15 @@
         $routeProvider.otherwise({
             redirectTo: '/'
         });
+    }])
+    .run(['$rootScope', '$location', 'ApplicationState', function($rootScope, $location, ApplicationState){
+    	$rootScope.readyState = false;
+    	ApplicationState.loadApplication();
+    	
+    	$rootScope.$on('$locationChangeStart', function(){
+    		if(!$rootScope.readyState){
+    			ApplicationState.loadApplication();
+    		}   
+    	})
     }]);
 }());

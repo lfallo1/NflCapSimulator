@@ -3,7 +3,7 @@
 		return{
 			restrict : 'E',
 			templateUrl : 'app/js/directives/templates/positionDropdown.html',
-			controller : function($scope, PositionResource){
+			controller : ['$scope', 'PositionResource', function($scope, PositionResource){
 				$scope.positionDropdownSettings = {displayProp: 'positionName', dynamicTitle:false, externalIdProp: ''};
 	            $scope.positionDropdownLabel = {buttonDefaultText: 'Positions'};
 	            PositionResource.query(function(data){
@@ -17,7 +17,7 @@
 	                onItemSelect : function(){$scope.filterChanged();},
 	                onItemDeselect : function(){$scope.filterChanged();}
 	            };				
-			}
+			}]
 		}
 	});
 })();

@@ -2,16 +2,27 @@
  * 
  */
 (function(){
-	angular.module('app.controllers').controller('PlayerCtrl', function($rootScope, $scope, $routeParams, $location, 
+	angular.module('app.controllers').controller('PlayerCtrl',[
+							'$rootScope',
+							'$scope',
+							'$routeParams',
+							'$location',
+							'$window',
+							'PlayerResource',
+							'ContractResource',
+							'ContractOverviewResource',
+							'TransactionResource',
+							'TeamResource',
+							'DeadMoneyResource',
+							'ColorServices',
+							'ContractManagementService',	                                                           
+			function($rootScope, $scope, $routeParams, $location, 
 			$window, PlayerResource, ContractResource, ContractOverviewResource, TransactionResource, 
 			TeamResource, DeadMoneyResource, ColorServices,
 			ContractManagementService){
 		$scope.title = "Player Profile";
 		
-		if($rootScope.readyState ===false){
-			$location.path("/");
-		}
-		else if($routeParams.id != null && !isNaN($routeParams.id)){
+		if($routeParams.id != null && !isNaN($routeParams.id)){
 			PlayerResource.get({
 				id : $routeParams.id
 			}).$promise.then(function(data){
@@ -105,5 +116,5 @@
 			} : null;
 		}
 		
-	});
+	}]);
 })();

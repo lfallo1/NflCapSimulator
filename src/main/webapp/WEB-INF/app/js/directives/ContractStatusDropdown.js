@@ -3,7 +3,7 @@
 		return{
 			restrict : 'E',
 			templateUrl : 'app/js/directives/templates/contractStatusDropdown.html',
-			controller : function($scope, ContractStatusResource){
+			controller : ['$scope', 'ContractStatusResource', function($scope, ContractStatusResource){
 				$scope.contractDropdownSettings = {displayProp: 'contractStatusName', dynamicTitle:false, externalIdProp: ''};
 	            $scope.contractDropdownLabel = {buttonDefaultText: 'Contracts'};
 	            ContractStatusResource.query(function(data){
@@ -15,7 +15,7 @@
 	                onItemSelect : function(){$scope.filterChanged();},
 	                onItemDeselect : function(){$scope.filterChanged();}
 	            };
-			}			
+			}]			
 		}
 	})
 })();

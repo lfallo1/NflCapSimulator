@@ -1,4 +1,4 @@
-<div ng-show="!resetRosterNotification && readyState===true" class="row">
+<div ng-show="!resetRosterNotification" class="row">
 	<div class="jumbotron">
 		<h3><img id="nfl-logo" src="app/images/nfl-logo.png" /> NFL Salary Cap Simulator</h3>
 		<p>Select a team below to get started.</p>

@@ -61,5 +61,29 @@
     		}
     	};
     });
+    
+    utilityServices.factory('MessageServices', function(){
+    	var factory = {};
+    	var applicationMessage = "Application is loading...";
+    	var rosterActionMessage;
+    	
+    	factory.setApplicationMessage = function(message){
+    		applicationMessage = message;
+    	};
+    	
+    	factory.getApplicationMessage = function(){
+    		return applicationMessage;
+    	};
+    	
+    	factory.setRosterActionMessage = function(message){
+    		rosterActionMessage = message;
+    	};
+    	
+    	factory.getRosterActionMessage = function(){
+    		return rosterActionMessage;
+    	};    	
+    	
+    	return factory;
+    });
 
 })();

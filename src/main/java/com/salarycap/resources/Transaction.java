@@ -92,6 +92,12 @@ public class Transaction {
 		case "Reset":
 			msg = "All rosters have been reset";
 			break;
+		case "Traded":
+			msg = this.getPlayer().getName() + " " + this.getDescription() + "(" + this.getYear() + ")" + ". Cap Savings: " + DecimalFormat.getCurrencyInstance().format(this.getCapSavings());
+			break;
+		case "Added to Roster":
+			msg = this.getPlayer().getName() + " " + this.getDescription() + "(" + this.getYear() + ")";
+			break;			
 		default:
 			msg = this.getPlayer().getName() + " " + this.getTransactionType();
 			break;

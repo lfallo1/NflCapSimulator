@@ -61,7 +61,7 @@ public class AddPlayerService {
 		yearlyContractDal.addAll(contractList);
 		ContractOverview contractOverview = contractManagementService.generateContractOverview(contractList);
 		updateFreeAgentContract(contractOverview);
-		transactionService.push(new Transaction(TransactionType.ADD_PLAYER, "Signed to " + contractList.size() + " year contract", 0.0, 0.0, newPlayerWrapper.getYear(),
+		transactionService.push(new Transaction(TransactionType.ADD_PLAYER, "Added to Roster", 0.0, 0.0, newPlayerWrapper.getYear(),
 				newPlayerWrapper.getTeamId(), player, null, null, contractOverview));
 	}
 	

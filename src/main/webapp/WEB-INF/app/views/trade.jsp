@@ -43,8 +43,8 @@
 	</div>
 	<div class="row">
 		<div class="trade-page-btns col-md-12">
-			<button class="success-background primary-button" ng-click="submitTrade()">Perform Trade</button>
-			<button class="danger-background primary-button" ng-click="goToTeamPage()">Cancel</button>
+			<button class="primary-button" ng-click="submitTrade()">Perform Trade</button>
+			<button class="danger-background primary-button" ng-click="cancel()">Cancel</button>
 		</div>
 	</div>
 </div>

@@ -66,7 +66,8 @@ public class TradePlayerService {
 			}
 		}
 		calculateDeadMoney(newTeamContracts);
-		transactionService.push(new Transaction(TransactionType.OTHER, "Trade", oldTeamCapSavings, oldTeamDeadMoney, templateContract.getYear(), oldTeamId, player, originalContracts, originalDeadMoney, overview));
+		String description = "Traded";
+		transactionService.push(new Transaction(TransactionType.OTHER, description, oldTeamCapSavings, oldTeamDeadMoney, templateContract.getYear(), oldTeamId, player, originalContracts, originalDeadMoney, overview));
 	}
 
 	private void generateOldTeamValues(YearlyContract templateContract) {

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for ./app/js/directives/EnterSupport.js</title>
+    <title>Code coverage report for ./app/js/controllers/CssCtrl.js</title>
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="../../../prettify.css">
@@ -15,23 +15,23 @@
 </head>
 <body>
 <div class="header low">
-    <h1>Code coverage report for <span class="entity">./app/js/directives/EnterSupport.js</span></h1>
+    <h1>Code coverage report for <span class="entity">./app/js/controllers/CssCtrl.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">33.33% <small>(2 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">40% <small>(2 / 5)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">0% <small>(0 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Functions: <span class="metric">25% <small>(1 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">33.33% <small>(2 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">40% <small>(2 / 5)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./app/js/directives/</a> &#187; EnterSupport.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./app/js/controllers/</a> &#187; CssCtrl.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
@@ -46,34 +46,28 @@
 9
 10
 11
-12
-13
-14</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+12</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function(){
-	angular.module('salaryCapApp').directive('scEnterSupport', <span class="fstat-no" title="function not covered" >function(){</span>
-<span class="cstat-no" title="statement not covered" >		return{</span>
-			restrict : 'A',
-			link : <span class="fstat-no" title="function not covered" >function(scope, el, attr){</span>
-<span class="cstat-no" title="statement not covered" >				$('body').on('keypress', <span class="fstat-no" title="function not covered" >function(evt){</span></span>
-<span class="cstat-no" title="statement not covered" >					if(evt.keyCode === 13){</span>
-<span class="cstat-no" title="statement not covered" >						el[0].click();</span>
-					}
-				})
-			}
-		}
-	});
+	angular.module('app.controllers').controller('CssCtrl', ['$scope', '$route', <span class="fstat-no" title="function not covered" >function($scope, $route) {</span>
+		
+<span class="cstat-no" title="statement not covered" >		$scope.$watch(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >			return ($route.current &amp;&amp; $route.current.css) ? $route.current.css</span>
+					: '';
+		}, <span class="fstat-no" title="function not covered" >function(value) {</span>
+<span class="cstat-no" title="statement not covered" >			$scope.css = value;</span>
+		});
+&nbsp;
+	}]);
 })();</pre></td></tr>
 </table></pre>
 

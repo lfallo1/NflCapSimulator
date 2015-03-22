@@ -44,25 +44,7 @@ describe('Controller: HomeCtrl', function() {
 		});
 
 	}));
-
-	it('should set ready state to true after calling CalculationResource', function() {
-		$scope.init();
-		CalculationResourceDeferred.resolve(success);
-		$scope.$digest();
-		expect($scope.teams).toEqual(TEAMS);
-		expect(CalculationResource.getHighestPaid).toHaveBeenCalled();
-		expect($rootScope.readyState).toBeTruthy();
-	});
 	
-	it('should NOT set ready state to true after calling CalculationResource due to getting REJECT', function() {
-		$scope.init();
-		CalculationResourceDeferred.reject('error');
-		$scope.$digest();
-		expect($scope.teams).toEqual(TEAMS);
-		expect($rootScope.readyState).toBeFalsy();
-	});
-	
-
 	it('should change location path to \'team/5\'', function() {
 		$scope.goToTeamPage(5);
 		expect($location.path()).toBe('/team/5');
