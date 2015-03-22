@@ -2,7 +2,7 @@
  * 
  */
 (function(){
-	angular.module('app.controllers').controller('ExtensionCtrl', ['$rootScope', '$scope', '$routeParams', '$location', 'ContractResource', 'PlayerResource', 'MinimumSalaryResource', 'ExtensionValidationService', 'RosterActionResource', 'TeamResource', 'ColorServices', 'TransactionResource', 'MessageService', function($rootScope, $scope, $routeParams, $location, ContractResource, PlayerResource, MinimumSalaryResource, ExtensionValidationService, RosterActionResource, TeamResource, ColorServices, TransactionResource, MessageService){
+	angular.module('app.controllers').controller('ExtensionCtrl', ['$rootScope', '$scope', '$routeParams', '$location', 'ContractResource', 'PlayerResource', 'MinimumSalaryResource', 'ExtensionValidationService', 'RosterActionResource', 'TeamResource', 'ColorServices', 'TransactionResource', 'MessageServices', function($rootScope, $scope, $routeParams, $location, ContractResource, PlayerResource, MinimumSalaryResource, ExtensionValidationService, RosterActionResource, TeamResource, ColorServices, TransactionResource, MessageServices){
 		$scope.title = "Extension";
 		$scope.signingBonus = 1000000;
 		$scope.extensionObj = [];

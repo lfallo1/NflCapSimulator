@@ -63,7 +63,7 @@ public class ExtensionService {
 		addNewContractsToDal(newContracts);
 		ContractOverview contractOverview = contractManagementService.generateContractOverview(yearlyContractDal.getByPlayer(dto.getPlayerId()));
 		updateFreeAgentContract(contractOverview);
-		this.transactionService.push(new Transaction(TransactionType.OTHER, "Extension", originalCapCharge - newContracts.get(0).getCapCharge(), 0.0, dto.getYear(), newContracts.get(0).getTeam(), playerDal.getByPlayerId(dto.getPlayerId()), this.originalContracts, originalDeadMoney, originalContractOverview));
+		this.transactionService.push(new Transaction(TransactionType.OTHER, "Extension", 0.0, 0.0, dto.getYear(), newContracts.get(0).getTeam(), playerDal.getByPlayerId(dto.getPlayerId()), this.originalContracts, originalDeadMoney, originalContractOverview));
 	}
 
 	private void updateFreeAgentContract(ContractOverview contractOverview) {

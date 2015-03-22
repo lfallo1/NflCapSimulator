@@ -87,7 +87,7 @@ public class Transaction {
 			msg = this.getPlayer().getName() + "(" + this.getYear() + ")" + this.getDescription() + ". Cap Savings: " + DecimalFormat.getCurrencyInstance().format(this.getCapSavings());
 			break;
 		case "Extension":
-			msg = this.getPlayer().getName() + "(" + this.getYear() + ")" + this.getDescription() + ". Cap Savings: " + DecimalFormat.getCurrencyInstance().format(this.getCapSavings());
+			msg = this.getPlayer().getName() + this.getDescription() + " (" + this.getYear() + ")";
 			break;			
 		case "Reset":
 			msg = "All rosters have been reset";
