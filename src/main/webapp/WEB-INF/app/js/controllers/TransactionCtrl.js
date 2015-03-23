@@ -19,20 +19,18 @@
 		
 		$scope.init = function(){
 			if($routeParams.id !== undefined){
-				$scope.init = function(){
-					TransactionResource.get({
-						id : $routeParams.id
-					}).$promise.then(function(data, err){
-						$scope.transaction = data;
-						TeamResource.get({
-							id : data.teamId
-						}).$promise.then(function(data){
-							$scope.team = data;
-						});
-					}, function(err){
-						$location.path("/")
+				TransactionResource.get({
+					id : $routeParams.id
+				}).$promise.then(function(data, err){
+					$scope.transaction = data;
+					TeamResource.get({
+						id : data.teamId
+					}).$promise.then(function(data){
+						$scope.team = data;
 					});
-				};
+				}, function(err){
+					$location.path("/")
+				});
 			}
 			else{
 				$location.path("/");
