@@ -73,8 +73,13 @@ public class YearlyContractDal {
 	public List<YearlyContract> getByPlayer(Integer playerId) {
 		List<YearlyContract> playerContracts = new ArrayList<>();
 		for (YearlyContract contract : yearlyContracts) {
-			if(contract.getPlayer().getId().equals(playerId)){
-				playerContracts.add(contract);
+			try{
+				if(contract.getPlayer().getId().equals(playerId)){
+					playerContracts.add(contract);
+				}
+			}
+			catch(NullPointerException e){
+				System.out.println(e.getMessage());
 			}
 		}
 		return playerContracts;

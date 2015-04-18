@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html ng-app="salaryCapApp" ng-controller="CssCtrl">
+<html ng-app="salaryCapApp" ng-controller="RouteChangeCtrl">
 <head>
     <title>Salary Cap App</title>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -26,7 +26,7 @@
     <script src="app/js/services/extensionservices.js" type="text/javascript"></script>
     <script src="app/js/services/rosterservices.js" type="text/javascript"></script>
     <script src="app/js/services/validation.js" type="text/javascript"></script>
-    <script src="app/js/controllers/CssCtrl.js" type="text/javascript"></script>
+    <script src="app/js/controllers/RouteChangeCtrl.js" type="text/javascript"></script>
     <script src="app/js/controllers/NavCtrl.js" type="text/javascript"></script>
     <script src="app/js/controllers/NotificationCtrl.js" type="text/javascript"></script>
     <script src="app/js/controllers/HomeCtrl.js" type="text/javascript"></script>

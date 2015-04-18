@@ -14,8 +14,6 @@ import com.salarycap.dal.PlayerDal;
 import com.salarycap.dal.YearlyContractDal;
 import com.salarycap.dal.filters.ContractFilters;
 import com.salarycap.dal.service.ContractManagementService;
-import com.salarycap.dal.service.TeamService;
-import com.salarycap.dao.YearlyContractDao;
 import com.salarycap.dto.FilterObj;
 import com.salarycap.resources.ContractOverview;
 import com.salarycap.resources.Player;
@@ -28,19 +26,15 @@ public class ContractManagementServiceImpl implements ContractManagementService 
 	private ContractOverviewDal contractOverviewDal;
 	private YearlyContractDal yearlyContractDal;
 	private DeadMoneyDal deadMoneyDal;
-	private TeamService teamService;
 
 	@Autowired()
 	public ContractManagementServiceImpl(PlayerDal playerDal,
 			ContractOverviewDal contractOverviewDal,
-			YearlyContractDal yearlyContractDal,
-			YearlyContractDao yearlyContractDao, DeadMoneyDal deadMoneyDal,
-			TeamService teamService) {
+			YearlyContractDal yearlyContractDal, DeadMoneyDal deadMoneyDal) {
 		this.playerDal = playerDal;
 		this.yearlyContractDal = yearlyContractDal;
 		this.contractOverviewDal = contractOverviewDal;
 		this.deadMoneyDal = deadMoneyDal;
-		this.teamService = teamService;
 		reset();
 	}
 

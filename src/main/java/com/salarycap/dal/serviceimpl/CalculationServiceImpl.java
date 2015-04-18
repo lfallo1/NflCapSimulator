@@ -9,15 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import com.salarycap.dal.ContractOverviewDal;
-import com.salarycap.dal.DeadMoneyDal;
 import com.salarycap.dal.PlayerDal;
 import com.salarycap.dal.SalaryCapConstantsDal;
 import com.salarycap.dal.YearlyContractDal;
 import com.salarycap.dal.service.CalculationService;
 import com.salarycap.dal.service.ContractManagementService;
 import com.salarycap.dal.service.TeamService;
-import com.salarycap.dao.YearlyContractDao;
 import com.salarycap.dto.TeamSalaryDto;
 import com.salarycap.resources.Player;
 import com.salarycap.resources.Team;
@@ -27,25 +24,19 @@ import com.salarycap.resources.YearlyContract;
 @Service
 public class CalculationServiceImpl implements CalculationService {
 	private PlayerDal playerDal;
-	private ContractOverviewDal contractOverviewDal;
 	private YearlyContractDal yearlyContractDal;
-	private DeadMoneyDal deadMoneyDal;
 	private TeamService teamService;
 	private SalaryCapConstantsDal salaryCapConstantsDal;
 	private ContractManagementService contractManagementService;
 
 	@Autowired
 	public CalculationServiceImpl(PlayerDal playerDal,
-			ContractOverviewDal contractOverviewDal,
 			YearlyContractDal yearlyContractDal,
-			YearlyContractDao yearlyContractDao, DeadMoneyDal deadMoneyDal,
 			TeamService teamService,
 			SalaryCapConstantsDal salaryCapConstantsDal,
 			ContractManagementService contractManagementService) {
 		this.playerDal = playerDal;
 		this.yearlyContractDal = yearlyContractDal;
-		this.contractOverviewDal = contractOverviewDal;
-		this.deadMoneyDal = deadMoneyDal;
 		this.teamService = teamService;
 		this.salaryCapConstantsDal = salaryCapConstantsDal;
 		this.contractManagementService = contractManagementService;
