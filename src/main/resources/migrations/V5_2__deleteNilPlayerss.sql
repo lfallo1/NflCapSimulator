@@ -1,0 +1,1 @@
+delete FROM yearly_contract where player = 0;

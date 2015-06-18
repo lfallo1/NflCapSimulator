@@ -43,20 +43,20 @@
     <tx:annotation-driven transaction-manager="myTxManager" />
 
 <!-- OPENSHIFT Connection -->
-<!--      <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" depends-on="flyway"> -->
-<!--  	    <property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
-<!-- 		<property name="url" value="jdbc:mysql://127.12.26.2:3306/nflsalarycap" /> -->
-<!-- 		<property name="username" value="adminZ75rUeZ" /> -->
-<!-- 		<property name="password" value="2517vBMmCi6v" /> -->
-<!--      </bean> -->
-     
-<!-- LOCAL Connection -->
      <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" depends-on="flyway">
  	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/salarycap_prod" />
-		<property name="username" value="lfallon" />
-		<property name="password" value="Raven$1996" />
+		<property name="url" value="jdbc:mysql://127.12.26.2:3306/nflsalarycap" />
+		<property name="username" value="adminZ75rUeZ" />
+		<property name="password" value="2517vBMmCi6v" />
      </bean>
+     
+<!-- LOCAL Connection -->
+<!--      <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" depends-on="flyway"> -->
+<!--  	    <property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
+<!-- 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/salarycap_prod" /> -->
+<!-- 		<property name="username" value="lfallon" /> -->
+<!-- 		<property name="password" value="Raven$1996" /> -->
+<!--      </bean> -->
      
 <!-- JVMHOST Connection -->
 <!--      <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" depends-on="flyway"> -->
