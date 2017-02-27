@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.salarycap.dal.ContractOverviewDal;
 import com.salarycap.dal.DeadMoneyDal;
@@ -187,12 +188,25 @@ public class ContractManagementServiceImpl implements ContractManagementService 
 	public YearlyContract createFreeAgentContract(ContractOverview c) {
 		YearlyContract yc = new YearlyContract(
 				yearlyContractDal.getLastId(), c.getPlayer().getId(),
-				c.getTeam(), Integer.parseInt(c.getFreeAgentYear()
-						.subSequence(0, 4).toString()), 0.0, 0.0, 0.0,
+				c.getTeam(), getFreeAgentYear(c), 0.0, 0.0, 0.0,
 				0.0, 0.0, "", 0.0, 0.0, 0.0, 0.0, "", c.getRole(),
 				getFreeAgentType(c.getFreeAgentYear()), c.getPosition());
 		yc.setPlayer(playerDal.getByPlayerId(c.getPlayer().getId()));
 		return yc;
+	}
+	
+	private Integer getFreeAgentYear(ContractOverview c){
+		if(StringUtils.isEmpty(c.getFreeAgentYear()) || c.getFreeAgentYear().length() < 4){
+			List<YearlyContract> contracts = this.yearlyContractDal.getByPlayer(c.getPlayer().getId());
+			Collections.sort(contracts, new Comparator<YearlyContract>() {
+				@Override
+				public int compare(YearlyContract c1, YearlyContract c2) {
+					return -c1.getYear().compareTo(c2.getYear());
+				}
+			});
+			return contracts.size() > 0 ? contracts.get(0).getYear() : 0;
+		}
+		return Integer.parseInt(c.getFreeAgentYear().subSequence(0, 4).toString());
 	}
 
 	private String getFreeAgentType(String s) {

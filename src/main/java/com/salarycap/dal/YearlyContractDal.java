@@ -100,6 +100,11 @@ public class YearlyContractDal {
 			yearlyContract.setId(getLastId());
 			yearlyContracts.add(yearlyContract);
 		}
+	}
+
+	public Integer getFreeAgentYear(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 	
 }

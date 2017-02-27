@@ -71,7 +71,7 @@
             <li><a class="navbar-item" href="" ng-click="navigate('/transactions')">All Transactions</a></li>
             <li><a class="navbar-item" href="" ng-click="reset()">Reset</a></li>
         </ul>
-        <span class="right-align"><p>Contract data courtesy of Jason Fitzgerald at <a href="http://overthecap.com/"><img id="otclogo" src="app/images/otc-logo.png" /></a></span>
+        <span class="right-align"><p>Contract data courtesy of Jason Fitzgerald at <a target="_blank" href="http://overthecap.com/"><img id="otclogo" src="app/images/otc-logo.png" /></a></span>
     </div>
 </nav>
 <div class="container">
@@ -86,7 +86,7 @@
 <hr>
 <div class="footer">
 	<p>Contract data courtesy of Jason Fitzgerald at <a href="http://overthecap.com/"><img id="otclogo" src="app/images/otc-logo.png" /></a>
-	<p>Lance Fallon | <a href="mailto:LFallon@NflCapSimulator.com">LFallon@NflCapSimulator.com</a> | 2015</p>
+	<p>Lance Fallon | <a target="_blank" href="mailto:LFallon@NflCapSimulator.com">LFallon@NflCapSimulator.com</a> | 2017</p>
 </div>
 </body>
 </html>

@@ -24,8 +24,10 @@
 			var length = sortedContracts[sortedContracts.length-1].year - startYearOfCurrentContract + 1;
 			var startingIndex = startYearOfCurrentContract - sortedContracts[0].year;
 			for(var i = startingIndex; i < startingIndex + length; i++){
-				overview.totalValue += sortedContracts[i].capCharge;
-				overview.guaranteed += sortedContracts[i].signingBonus + sortedContracts[i].optionBonus + sortedContracts[i].guaranteedBaseSalary;
+				if(sortedContracts[i]){
+					overview.totalValue += sortedContracts[i].capCharge;
+					overview.guaranteed += sortedContracts[i].signingBonus + sortedContracts[i].optionBonus + sortedContracts[i].guaranteedBaseSalary;
+				}
 			}
 			overview.apy = (overview.totalValue / contractOverview.years).toFixed(2);
 			overview.contractLength = contractOverview.years;

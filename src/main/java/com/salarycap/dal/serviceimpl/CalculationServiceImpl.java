@@ -45,12 +45,16 @@ public class CalculationServiceImpl implements CalculationService {
 	@Override
 	public List<YearlyContract> getHighestPaid(Integer year) {
 		List<YearlyContract> results = new ArrayList<>();
-		Collections.sort(yearlyContractDal.getYearlyContracts(), new Comparator<YearlyContract>(){
-			@Override
-			public int compare(YearlyContract c1, YearlyContract c2) {
-				return -c1.getCapCharge().compareTo(c2.getCapCharge());
-			}
-		});
+		try{
+			Collections.sort(yearlyContractDal.getYearlyContracts(), new Comparator<YearlyContract>(){
+				@Override
+				public int compare(YearlyContract c1, YearlyContract c2) {
+					return -c1.getCapCharge().compareTo(c2.getCapCharge());
+				}
+			});
+		} catch(Exception e){
+			e.printStackTrace();
+		}
 		
 		int counter = 0, i = 0;
 		while(counter < 50){
